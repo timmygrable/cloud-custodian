@@ -4,6 +4,7 @@ from c7n.manager import resources
 from c7n.query import QueryResourceManager, TypeInfo
 from c7n.filters import ValueFilter
 from c7n.utils import local_session, type_schema
+from c7n.actions import Action
 
 
 @resources.register('connect-instance')
@@ -59,3 +60,49 @@ class ConnectInstanceAttributeFilter(ValueFilter):
 
         return results
 
+    @Connect.action_registry.register("set-contact-lens")
+    class SetContactLens(Action):
+        """Set the contact lens feature for the connect resources
+
+        :Example:
+
+        .. code-block:: yaml
+
+            policies:
+              - name: connect-set-contact-lens
+                resource: connect-instance
+                filters:
+                  - type: instance-attribute
+                    key: Attribute.Value
+                    value: true
+                    attribute_type: CONTACT_LENS
+                actions:
+                  - type: set-contact-lens
+                    value: true
+              - name: connect-disable-contact-lens
+                resource: connect-instance
+                filters:
+                  - type: instance-attribute
+                    key: Attribute.Value
+                    value: true
+                    attribute_type: CONTACT_LENS
+                actions:
+                  - type: set-contact-lens
+                    value: false
+        """
+        schema = type_schema("set-contact-lens", **{"value": "boolean"})
+        permissions = ("connect:UpdateInstanceAttribute",)
+
+        def process(self, resources):
+            client = local_session(self.manager.session_factory).client('connect')
+
+            if not resources:
+                return
+
+            if "value" not in self.data:
+                return
+
+            for r in resources:
+                client.update_instance_attribute(InstanceId=r["Id"],
+                    AttributeType="CONTACT_LENS", Value=self.data.get("value"))
+            return

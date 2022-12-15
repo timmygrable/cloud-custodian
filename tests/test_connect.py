@@ -33,3 +33,60 @@ class ConnectTest(BaseTest):
         )
         resources = p.run()
         self.assertEqual(len(resources), 1)
+
+    def test_connect_set_contact_lens(self):
+        session_factory = self.replay_flight_data("test_connect_set_contact_lens")
+        p = self.load_policy(
+            {
+                "name": "connect-instance-set-contact-lens",
+                "resource": "connect-instance",
+                "filters": [{
+                    'type': 'instance-attribute',
+                    'key': 'Attribute.Value',
+                    'value': 'true',
+                    'attribute_type': 'CONTACT_LENS'
+                }],
+                "actions": [
+                    {'type': 'set-contact-lens',
+                    "value": "true"}
+                ]
+            },
+            session_factory=session_factory
+        )
+        resources = p.run()
+        results = []
+        for r in resources:
+            results.append(
+                session_factory().client('connect').describe_instance_attribute(
+                    InstanceId=r["Id"],
+                    AttributeType="CONTACT_LENS")
+            )
+
+        self.assertEqual(results[0]["Attribute"]["AttributeType"], "CONTACT_LENS")
+        self.assertEqual(results[0]["Attribute"]["Value"], "true")
+        self.assertEqual(len(resources), 1)
+
+    def test_connect_disable_contact_lens(self):
+        session_factory = self.replay_flight_data("test_connect_disable_contact_lens")
+        p = self.load_policy(
+            {
+                "name": "connect-instance-disable-contact-lens-test",
+                "resource": "connect-instance",
+                "actions": [
+                    {'type': 'set-contact-lens',
+                    "value": "false"}
+                ]
+            },
+            session_factory=session_factory
+        )
+        resources = p.run()
+        results = []
+        for r in resources:
+            results.append(
+                session_factory().client('connect').describe_instance_attribute(
+                    InstanceId=r["Id"],
+                    AttributeType="CONTACT_LENS")
+            )
+        self.assertEqual(results[0]["Attribute"]["AttributeType"], "CONTACT_LENS")
+        self.assertEqual(results[0]["Attribute"]["Value"], "false")
+        self.assertEqual(len(resources), 1)
