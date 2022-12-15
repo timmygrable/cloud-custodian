@@ -58,3 +58,4 @@ class ConnectInstanceAttributeFilter(ValueFilter):
                 results.append(r)
 
         return results
+
