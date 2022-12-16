@@ -34,8 +34,8 @@ class ConnectTest(BaseTest):
         resources = p.run()
         self.assertEqual(len(resources), 1)
 
-    def test_connect_set_contact_lens(self):
-        session_factory = self.replay_flight_data("test_connect_set_contact_lens")
+    def test_connect_set_attributes_true(self):
+        session_factory = self.replay_flight_data("test_connect_set_attributes_true")
         p = self.load_policy(
             {
                 "name": "connect-instance-set-contact-lens",
@@ -43,11 +43,12 @@ class ConnectTest(BaseTest):
                 "filters": [{
                     'type': 'instance-attribute',
                     'key': 'Attribute.Value',
-                    'value': 'true',
+                    'value': 'false',
                     'attribute_type': 'CONTACT_LENS'
                 }],
                 "actions": [
-                    {'type': 'set-contact-lens',
+                    {'type': 'set-attributes',
+                    "attribute_type": "CONTACT_LENS",
                     "value": "true"}
                 ]
             },
@@ -59,21 +60,28 @@ class ConnectTest(BaseTest):
             results.append(
                 session_factory().client('connect').describe_instance_attribute(
                     InstanceId=r["Id"],
-                    AttributeType="CONTACT_LENS")
+                    AttributeType=r["c7n:InstanceAttribute"]["Attribute"]["AttributeType"])
             )
 
         self.assertEqual(results[0]["Attribute"]["AttributeType"], "CONTACT_LENS")
         self.assertEqual(results[0]["Attribute"]["Value"], "true")
         self.assertEqual(len(resources), 1)
 
-    def test_connect_disable_contact_lens(self):
-        session_factory = self.replay_flight_data("test_connect_disable_contact_lens")
+    def test_connect_set_attributes_false(self):
+        session_factory = self.replay_flight_data("test_connect_set_attributes_false")
         p = self.load_policy(
             {
                 "name": "connect-instance-disable-contact-lens-test",
                 "resource": "connect-instance",
+                "filters": [{
+                    'type': 'instance-attribute',
+                    'key': 'Attribute.Value',
+                    'value': 'true',
+                    'attribute_type': 'CONTACT_LENS'
+                }],
                 "actions": [
-                    {'type': 'set-contact-lens',
+                    {'type': 'set-attributes',
+                    "attribute_type": "CONTACT_LENS",
                     "value": "false"}
                 ]
             },
@@ -85,7 +93,7 @@ class ConnectTest(BaseTest):
             results.append(
                 session_factory().client('connect').describe_instance_attribute(
                     InstanceId=r["Id"],
-                    AttributeType="CONTACT_LENS")
+                    AttributeType=r["c7n:InstanceAttribute"]["Attribute"]["AttributeType"])
             )
         self.assertEqual(results[0]["Attribute"]["AttributeType"], "CONTACT_LENS")
         self.assertEqual(results[0]["Attribute"]["Value"], "false")

@@ -60,9 +60,9 @@ class ConnectInstanceAttributeFilter(ValueFilter):
 
         return results
 
-    @Connect.action_registry.register("set-contact-lens")
-    class SetContactLens(Action):
-        """Set the contact lens feature for the connect resources
+    @Connect.action_registry.register("set-attributes")
+    class SetAttributes(Action):
+        """Set the attributes for the connect resources
 
         :Example:
 
@@ -77,7 +77,8 @@ class ConnectInstanceAttributeFilter(ValueFilter):
                     value: true
                     attribute_type: CONTACT_LENS
                 actions:
-                  - type: set-contact-lens
+                  - type: set-attributes
+                    attribute_type: CONTACT_LENS
                     value: true
               - name: connect-disable-contact-lens
                 resource: connect-instance
@@ -87,10 +88,11 @@ class ConnectInstanceAttributeFilter(ValueFilter):
                     value: true
                     attribute_type: CONTACT_LENS
                 actions:
-                  - type: set-contact-lens
+                  - type: set-attributes
+                    attribute_type: CONTACT_LENS
                     value: false
         """
-        schema = type_schema("set-contact-lens", **{"value": "boolean"})
+        schema = type_schema("set-attributes", **{"attribute_type": "string", "value": "boolean"})
         permissions = ("connect:UpdateInstanceAttribute",)
 
         def process(self, resources):
@@ -99,10 +101,10 @@ class ConnectInstanceAttributeFilter(ValueFilter):
             if not resources:
                 return
 
-            if "value" not in self.data:
+            if "value" not in self.data and "attribute_type" not in self.data:
                 return
 
             for r in resources:
                 client.update_instance_attribute(InstanceId=r["Id"],
-                    AttributeType="CONTACT_LENS", Value=self.data.get("value"))
+                    AttributeType=self.data.get("attribute_type"), Value=self.data.get("value"))
             return
