@@ -92,19 +92,20 @@ class ConnectInstanceAttributeFilter(ValueFilter):
                     attribute_type: CONTACT_LENS
                     value: false
         """
-        schema = type_schema("set-attributes", **{"attribute_type": "string", "value": "boolean"})
+        attributes = ["INBOUND_CALLS", "OUTBOUND_CALLS",
+                      "CONTACTFLOW_LOGS", "CONTACT_LENS",
+                      "AUTO_RESOLVE_BEST_VOICES", "USE_CUSTOM_TTS_VOICES",
+                      "EARLY_MEDIA", "MULTI_PARTY_CONFERENCE",
+                      "HIGH_VOLUME_OUTBOUND", "ENHANCED_CONTACT_MONITORING"]
+        schema = type_schema("set-attributes", attribute_type={'anyOf':
+                        [{'enum': attributes}, {'type': 'string'}]}, value={}, required=["value"])
         permissions = ("connect:UpdateInstanceAttribute",)
 
         def process(self, resources):
             client = local_session(self.manager.session_factory).client('connect')
 
-            if not resources:
-                return
-
-            if "value" not in self.data and "attribute_type" not in self.data:
-                return
-
             for r in resources:
                 client.update_instance_attribute(InstanceId=r["Id"],
                     AttributeType=self.data.get("attribute_type"), Value=self.data.get("value"))
+
             return
