@@ -97,8 +97,8 @@ class ConnectInstanceAttributeFilter(ValueFilter):
                       "AUTO_RESOLVE_BEST_VOICES", "USE_CUSTOM_TTS_VOICES",
                       "EARLY_MEDIA", "MULTI_PARTY_CONFERENCE",
                       "HIGH_VOLUME_OUTBOUND", "ENHANCED_CONTACT_MONITORING"]
-        schema = type_schema("set-attributes", attribute_type={'anyOf':
-                        [{'enum': attributes}, {'type': 'string'}]}, value={}, required=["value"])
+        schema = type_schema("set-attributes", attribute_type={'anyOf': [{'enum': attributes},
+                  {'type': 'string'}]}, value={}, required=["value", "attribute_type"])
         permissions = ("connect:UpdateInstanceAttribute",)
 
         def process(self, resources):
