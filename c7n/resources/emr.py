@@ -343,3 +343,108 @@ class DeleteEMRSecurityConfiguration(BaseAction):
                 client.delete_security_configuration(Name=r['Name'])
             except client.exceptions.EntityNotFoundException:
                 continue
+
+
+@resources.register('emr-serverless')
+class EMRServerless(QueryResourceManager):
+    """Resource manager for Elastic MapReduce Serverless Application
+    """
+
+    class resource_type(TypeInfo):
+        service = 'emr-serverless'
+        arn_type = 'emr-serverless'
+        enum_spec = ('list_applications', 'applications', None)
+        name = 'name'
+        id = 'id'
+        date = "createdAt"
+        cfn_type = 'AWS::EMRServerless::Application'
+        permission_prefix = 'emr-serverless'
+        permissions = ('emr-serverless:ListApplications', )
+
+    def augment(self, resources):
+        for r in resources:
+            client = local_session(self.session_factory).client('emr-serverless')
+            r['tags'] = client.list_tags_for_resource(resourceArn=r['arn'])['tags']
+        return resources
+
+
+EMRServerless.action_registry.register('mark-for-op', TagDelayedAction)
+EMRServerless.filter_registry.register('marked-for-op', TagActionFilter)
+
+
+@EMRServerless.action_registry.register('tag')
+class EMRServerlessTag(Tag):
+    """Action to create tag(s) on EMR-Serverless
+
+    :example:
+
+    .. code-block:: yaml
+
+            policies:
+              - name: tag-emr-serverless
+                resource: emr-serverless
+                filters:
+                  - "tag:target-tag": absent
+                actions:
+                  - type: tag
+                    key: target-tag
+                    value: target-tag-value
+    """
+
+    permissions = ('emr-serverless:TagResource',)
+
+    def process_resource_set(self, client, resource_set, tags):
+        Tags = {r['Key']: r['Value'] for r in tags}
+        for r in resource_set:
+            client.tag_resource(resourceArn=r['arn'], tags=Tags)
+
+
+@EMRServerless.action_registry.register("remove-tag")
+class EMRServerlessRemoveTag(RemoveTag):
+    """Action to create tag(s) on EMR-Serverless
+
+    :example:
+
+    .. code-block:: yaml
+
+            policies:
+              - name: tag-emr-serverless
+                resource: emr-serverless
+                filters:
+                  - "tag:target-tag": present
+                actions:
+                  - type: remove-tag
+                    tags: ["target-tag"]
+    """
+    permissions = ('emr-serverless:UntagResource',)
+
+    def process_resource_set(self, client, resource_set, tags):
+        for r in resource_set:
+            client.untag_resource(resourceArn=r['arn'], tagKeys=tags)
+
+
+@EMRServerless.action_registry.register("delete")
+class EMRServerlessDelete(BaseAction):
+    """Deletes an EMRServerless application
+    :example:
+
+    .. code-block:: yaml
+
+            policies:
+              - name: delete-emr-serverless-app
+                resource: emr-serverless
+                actions:
+                  - type: delete
+    """
+    schema = type_schema('delete')
+    permissions = ('emr-serverless:DeleteApplication',)
+
+    def process(self, resources):
+        client = local_session(self.manager.session_factory).client('emr-serverless')
+        for r in resources:
+            try:
+                client.delete_application(
+                    applicationId=r['id']
+                )
+            except client.exceptions.ResourceNotFoundException:
+                continue

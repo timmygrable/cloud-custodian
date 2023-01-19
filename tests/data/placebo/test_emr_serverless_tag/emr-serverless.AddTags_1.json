@@ -1,0 +1,16 @@
+{
+    "status_code": 200, 
+    "data": {
+        "ResponseMetadata": {
+            "RetryAttempts": 0, 
+            "HTTPStatusCode": 200, 
+            "RequestId": "test_request_id", 
+            "HTTPHeaders": {
+                "x-amzn-requestid": "test_request_id", 
+                "date": "Thu, 14 Dec 2022 01:42:16 GMT", 
+                "content-length": "2", 
+                "content-type": "application/x-amz-json-1.1"
+            }
+        }
+    }
+}

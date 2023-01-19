@@ -1,0 +1,39 @@
+{
+    "status_code": 200,
+    "data": {
+        "applications": [
+            {
+                "id": "test_id",
+                "name": "test_name",
+                "arn": "arn:aws:emr-serverless:us-east-1:123456789012:/applications/00f771hdlba6ik09",
+                "releaseLabel": "emr-6.80",
+                "type": "Spark",
+                "state": "STARTING",
+                "stateDetails": "test_state_details",
+                "createdAt":  {
+                    "hour": 17, 
+                    "__class__": "datetime", 
+                    "month": 8, 
+                    "second": 35, 
+                    "microsecond": 0, 
+                    "year": 2016, 
+                    "day": 30, 
+                    "minute": 37
+                },
+                "updatedAt": {
+                    "hour": 17, 
+                    "__class__": "datetime", 
+                    "month": 8, 
+                    "second": 35, 
+                    "microsecond": 0, 
+                    "year": 2016, 
+                    "day": 30, 
+                    "minute": 37
+                },
+                "architecture": "ARM64"
+            }
+        ],
+        "nextToken": ""
+    },
+    "ResponseMetadata": {}
+}
