@@ -281,7 +281,7 @@ class TestEMRServerless(BaseTest):
         p = self.load_policy(
             {
                 "name": "emr-serverless-tag",
-                "resource": "aws.emr-serverless",
+                "resource": "aws.emr-serverless-app",
                 "filters": [{"tag:foo": "absent"}],
                 "actions": [{"type": "tag", "tags": {"foo": "bar"}}]
             },
@@ -299,7 +299,7 @@ class TestEMRServerless(BaseTest):
         p = self.load_policy(
             {
                 'name': "test-emr-serverless-tag",
-                'resource': "aws.emr-serverless",
+                'resource': "aws.emr-serverless-app",
                 'filters': [{'tag:foo': 'present'}],
                 'actions': [{'type': 'remove-tag', 'tags': ['foo']}]
             },
@@ -316,7 +316,7 @@ class TestEMRServerless(BaseTest):
         p = self.load_policy(
             {
                 'name': 'test-emr-serverless-delete',
-                'resource': 'aws.emr-serverless',
+                'resource': 'aws.emr-serverless-app',
                 'actions': [{'type': 'delete'}]
             },
             session_factory=session_factory
@@ -332,7 +332,7 @@ class TestEMRServerless(BaseTest):
         p = self.load_policy(
             {
                 "name": "emr-serverless-markop",
-                "resource": "aws.emr-serverless",
+                "resource": "aws.emr-serverless-app",
                 "filters": [{"tag:foo": "absent"}],
                 "actions": [{"type": "mark-for-op", "op": "notify", "tag": "foo", "days": 2}],
             },

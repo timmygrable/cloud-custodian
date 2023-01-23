@@ -345,21 +345,21 @@ class DeleteEMRSecurityConfiguration(BaseAction):
                 continue
 
 
-@resources.register('emr-serverless')
+@resources.register('emr-serverless-app')
 class EMRServerless(QueryResourceManager):
     """Resource manager for Elastic MapReduce Serverless Application
     """
 
     class resource_type(TypeInfo):
         service = 'emr-serverless'
-        arn_type = 'emr-serverless'
+        arn = 'arn'
+        arn_type = 'emr-serverless-app'
         enum_spec = ('list_applications', 'applications', None)
         name = 'name'
         id = 'id'
         date = "createdAt"
         cfn_type = 'AWS::EMRServerless::Application'
         permission_prefix = 'emr-serverless'
-        permissions = ('emr-serverless:ListApplications', )
 
     def augment(self, resources):
         for r in resources:
@@ -382,7 +382,7 @@ class EMRServerlessTag(Tag):
 
             policies:
               - name: tag-emr-serverless
-                resource: emr-serverless
+                resource: emr-serverless-app
                 filters:
                   - "tag:target-tag": absent
                 actions:
@@ -409,7 +409,7 @@ class EMRServerlessRemoveTag(RemoveTag):
 
             policies:
               - name: tag-emr-serverless
-                resource: emr-serverless
+                resource: emr-serverless-app
                 filters:
                   - "tag:target-tag": present
                 actions:
@@ -432,7 +432,7 @@ class EMRServerlessDelete(BaseAction):
 
             policies:
               - name: delete-emr-serverless-app
-                resource: emr-serverless
+                resource: emr-serverless-app
                 actions:
                   - type: delete
     """
