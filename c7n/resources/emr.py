@@ -352,7 +352,7 @@ class EMRServerless(QueryResourceManager):
 
     class resource_type(TypeInfo):
         service = 'emr-serverless'
-        arn_type = 'application'
+        arn_type = ''
         arn_separator = "/"
         enum_spec = ('list_applications', 'applications', None)
         name = 'name'
@@ -368,7 +368,7 @@ class EMRServerless(QueryResourceManager):
         return resources
 
     def get_arns(self, resources):
-        return [self.generate_arn(r['id']) for r in resources]
+        return [self.generate_arn('/applications/' + r['id']) for r in resources]
 
 
 EMRServerless.action_registry.register('mark-for-op', TagDelayedAction)
