@@ -203,7 +203,7 @@ class PolicyMetaLint(BaseTest):
         overrides = overrides.difference(
             {'account', 's3', 'hostedzone', 'log-group', 'rest-api', 'redshift-snapshot',
              'rest-stage', 'codedeploy-app', 'codedeploy-group', 'fis-template', 'dlm-policy',
-             'apigwv2', })
+             'apigwv2','emr-serverless-app', })
         if overrides:
             raise ValueError("unknown arn overrides in %s" % (", ".join(overrides)))
 
@@ -560,6 +560,7 @@ class PolicyMetaLint(BaseTest):
                 invalid[k] = {'valid': sorted(svc_arn_types),
                               'service': svc,
                               'resource': v.resource_type.arn_type}
+                print(invalid[k])
 
         if invalid:
             raise ValueError("%d %s have invalid arn types in metadata" % (

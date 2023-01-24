@@ -352,8 +352,8 @@ class EMRServerless(QueryResourceManager):
 
     class resource_type(TypeInfo):
         service = 'emr-serverless'
-        arn = 'arn'
-        arn_type = 'emr-serverless-app'
+        arn_type = 'application'
+        arn_separator = "/"
         enum_spec = ('list_applications', 'applications', None)
         name = 'name'
         id = 'id'
@@ -367,6 +367,8 @@ class EMRServerless(QueryResourceManager):
             r['tags'] = client.list_tags_for_resource(resourceArn=r['arn'])['tags']
         return resources
 
+    def get_arns(self, resources):
+        return [self.generate_arn(r['id']) for r in resources]
 
 EMRServerless.action_registry.register('mark-for-op', TagDelayedAction)
 EMRServerless.filter_registry.register('marked-for-op', TagActionFilter)
@@ -408,7 +410,7 @@ class EMRServerlessRemoveTag(RemoveTag):
     .. code-block:: yaml
 
             policies:
-              - name: tag-emr-serverless
+              - name: untag-emr-serverless
                 resource: emr-serverless-app
                 filters:
                   - "tag:target-tag": present

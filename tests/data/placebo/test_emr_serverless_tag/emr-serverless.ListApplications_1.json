@@ -1,39 +1,38 @@
 {
     "status_code": 200,
     "data": {
+        "ResponseMetadata": {},
         "applications": [
             {
-                "id": "test_id",
-                "name": "test_name",
-                "arn": "arn:aws:emr-serverless:us-east-1:123456789012:/applications/00f771hdlba6ik09",
-                "releaseLabel": "emr-6.80",
+                "id": "00f7b3ke5ld5df09",
+                "name": "test-emr-serverless",
+                "arn": "arn:aws:emr-serverless:us-east-1:644160558196:/applications/00f7b3ke5ld5df09",
+                "releaseLabel": "emr-6.9.0",
                 "type": "Spark",
-                "state": "STARTING",
-                "stateDetails": "test_state_details",
-                "createdAt":  {
-                    "hour": 17, 
-                    "__class__": "datetime", 
-                    "month": 8, 
-                    "second": 35, 
-                    "microsecond": 0, 
-                    "year": 2016, 
-                    "day": 30, 
-                    "minute": 37
+                "state": "CREATED",
+                "stateDetails": "Application created by user.",
+                "createdAt": {
+                    "__class__": "datetime",
+                    "year": 2023,
+                    "month": 1,
+                    "day": 23,
+                    "hour": 17,
+                    "minute": 23,
+                    "second": 4,
+                    "microsecond": 465000
                 },
                 "updatedAt": {
-                    "hour": 17, 
-                    "__class__": "datetime", 
-                    "month": 8, 
-                    "second": 35, 
-                    "microsecond": 0, 
-                    "year": 2016, 
-                    "day": 30, 
-                    "minute": 37
+                    "__class__": "datetime",
+                    "year": 2023,
+                    "month": 1,
+                    "day": 23,
+                    "hour": 17,
+                    "minute": 23,
+                    "second": 4,
+                    "microsecond": 465000
                 },
-                "architecture": "ARM64"
+                "architecture": "X86_64"
             }
-        ],
-        "nextToken": ""
-    },
-    "ResponseMetadata": {}
+        ]
+    }
 }
