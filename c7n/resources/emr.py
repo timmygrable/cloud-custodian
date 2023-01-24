@@ -370,6 +370,7 @@ class EMRServerless(QueryResourceManager):
     def get_arns(self, resources):
         return [self.generate_arn(r['id']) for r in resources]
 
+
 EMRServerless.action_registry.register('mark-for-op', TagDelayedAction)
 EMRServerless.filter_registry.register('marked-for-op', TagActionFilter)
 
