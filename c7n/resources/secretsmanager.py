@@ -281,11 +281,19 @@ class AutoRotateSecretAction(Action):
               actions:
                 - type: auto-rotate
                   client_token: 'test_token'
-                  lambda_arn: 'arn::TODO'
+                  lambda_arn: 'arn:aws:lambda:us-east-1:644160558196:function:test-rotate-secret'
                   rotate_immediately: true
                   automatically_after_days: 100
                   rotation_duration: '3h'
-                  schedule_expression: 'cron(0 0 */1 * * ? *)'
+            - name: auto-rotate-key-schedule-expression
+              resource: aws.secrets-manager
+              actions:
+                - type: auto-rotate
+                  client_token: 'test_token'
+                  lambda_arn: 'arn:aws:lambda:us-east-1:644160558196:function:test-rotate-secret'
+                  rotate_immediately: true
+                  automatically_after_days: 100
+                  schedule_expression: 'rate(10 days)'
 
     """
 
@@ -294,7 +302,7 @@ class AutoRotateSecretAction(Action):
                          lambda_arn={'type': 'string'},
                          rotate_immediately={'type': 'boolean'},
                          automatically_after_days={'type': 'integer'},
-                         rotation_duration={'type':'string'},
+                         rotation_duration={'type': 'string'},
                          schedule_expression={'type': 'string'}
                          )
     permissions = ('secretsmanager:RotateSecret', )
@@ -309,20 +317,18 @@ class AutoRotateSecretAction(Action):
             lambda_arn = self.data.get('lambda_arn')
             if lambda_arn is not None:
                 params['RotationLambdaARN'] = lambda_arn
-            rotation_rules = self.data.get("rotation_rules")
-            if rotation_rules is not None:
-                params['RotationRules'] = rotation_rules
             rotate_immediately = self.data.get('rotate_immediately')
             if rotate_immediately is not None:
                 params['RotateImmediately'] = rotate_immediately
+            params['RotationRules'] = {}
             automatically_after_days = self.data.get('automatically_after_days')
             if automatically_after_days is not None:
                 params['RotationRules']['AutomaticallyAfterDays'] = automatically_after_days
             rotation_duration = self.data.get('rotation_duration')
-            if rotation_duration is not None: 
+            if rotation_duration is not None:
                 params['RotationRules']['Duration'] = rotation_duration
             schedule_expression = self.data.get('schedule_expression')
-            if schedule_expression is not None: 
+            if schedule_expression is not None:
                 params['RotationRules']['ScheduleExpression'] = schedule_expression
-            params["SecretId"]=r['Name']
+            params['SecretId'] = r['Name']
             client.rotate_secret(**params)

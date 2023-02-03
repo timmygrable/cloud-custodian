@@ -246,9 +246,8 @@ class TestSecretsManager(BaseTest):
             }
         )
 
-
-    def test_auto_rotate_no_params(self):
-        session = self.record_flight_data("test_secrets_manager_auto_rotate")
+    def test_auto_rotate(self):
+        session = self.replay_flight_data("test_secrets_manager_auto_rotate")
         client = session(region="us-east-1").client("secretsmanager")
         p = self.load_policy(
             {
@@ -257,14 +256,49 @@ class TestSecretsManager(BaseTest):
                 "actions": [
                     {
                         "type": "auto-rotate",
-                        "lambda_arn": "arn:aws:lambda:us-east-1:644160558196:function:test-rotate-secrets"
+                        "lambda_arn":
+                            "arn:aws:lambda:us-east-1:644160558196:function:test-rotate-secret",
+                        "rotate_immediately": True,
+                        "automatically_after_days": 90,
+                        "rotation_duration": '3h'
                     }
                 ],
             },
             session_factory=session,
         )
         resources = p.run()
-        self.assertFalse(resources[0].get('Tags'))
-        new_tags = client.describe_secret(SecretId="c7n-test-key")
-        print(new_tags)
-        # self.assertTrue("tag@" in new_tags[0].get("Value"))
+        self.assertEqual(len(resources), 1)
+        data = client.describe_secret(SecretId="test1")
+        self.assertEqual(data.get("RotationEnabled"), True)
+        self.assertEqual(
+            data.get("RotationLambdaARN"),
+            "arn:aws:lambda:us-east-1:644160558196:function:test-rotate-secret"
+        )
+        self.assertEqual(data.get("RotationRules").get("AutomaticallyAfterDays"), 90)
+        self.assertEqual(data.get("RotationRules").get("Duration"), "3h")
+
+    def test_auto_rotate_no_params(self):
+        session = self.replay_flight_data("test_secrets_manager_auto_rotate_no_params")
+        client = session(region="us-east-1").client("secretsmanager")
+        p = self.load_policy(
+            {
+                "name": "secrets-manager-resource",
+                "resource": "secrets-manager",
+                "actions": [
+                    {
+                        "type": "auto-rotate",
+                        "lambda_arn":
+                            "arn:aws:lambda:us-east-1:644160558196:function:test-rotate-secret"
+                    }
+                ],
+            },
+            session_factory=session,
+        )
+        resources = p.run()
+        self.assertEqual(len(resources), 1)
+        data = client.describe_secret(SecretId="test1")
+        self.assertEqual(data.get("RotationEnabled"), True)
+        self.assertEqual(
+            data.get("RotationLambdaARN"),
+            "arn:aws:lambda:us-east-1:644160558196:function:test-rotate-secret"
+        )
