@@ -245,3 +245,26 @@ class TestSecretsManager(BaseTest):
                 "actions": [{"type": "remove-statements", "statement_ids": "matched"}],
             }
         )
+
+
+    def test_auto_rotate_no_params(self):
+        session = self.record_flight_data("test_secrets_manager_auto_rotate")
+        client = session(region="us-east-1").client("secretsmanager")
+        p = self.load_policy(
+            {
+                "name": "secrets-manager-resource",
+                "resource": "secrets-manager",
+                "actions": [
+                    {
+                        "type": "auto-rotate",
+                        "lambda_arn": "arn:aws:lambda:us-east-1:644160558196:function:test-rotate-secrets"
+                    }
+                ],
+            },
+            session_factory=session,
+        )
+        resources = p.run()
+        self.assertFalse(resources[0].get('Tags'))
+        new_tags = client.describe_secret(SecretId="c7n-test-key")
+        print(new_tags)
+        # self.assertTrue("tag@" in new_tags[0].get("Value"))
