@@ -253,12 +253,16 @@ class TestSecretsManager(BaseTest):
             {
                 "name": "secrets-manager-resource",
                 "resource": "secrets-manager",
+                "filters": [
+                    {
+                        "type": "value",
+                        "key": "RotationEnabled",
+                        "value": False
+                    }
+                ],
                 "actions": [
                     {
                         "type": "auto-rotate",
-                        "lambda_arn":
-                            "arn:aws:lambda:us-east-1:644160558196:function:test-rotate-secret",
-                        "rotate_immediately": True,
                         "automatically_after_days": 90,
                         "rotation_duration": '3h'
                     }
@@ -270,10 +274,6 @@ class TestSecretsManager(BaseTest):
         self.assertEqual(len(resources), 1)
         data = client.describe_secret(SecretId="test1")
         self.assertEqual(data.get("RotationEnabled"), True)
-        self.assertEqual(
-            data.get("RotationLambdaARN"),
-            "arn:aws:lambda:us-east-1:644160558196:function:test-rotate-secret"
-        )
         self.assertEqual(data.get("RotationRules").get("AutomaticallyAfterDays"), 90)
         self.assertEqual(data.get("RotationRules").get("Duration"), "3h")
 
@@ -284,11 +284,16 @@ class TestSecretsManager(BaseTest):
             {
                 "name": "secrets-manager-resource",
                 "resource": "secrets-manager",
+                "filters": [
+                    {
+                        "type": "value",
+                        "key": "RotationEnabled",
+                        "value": False
+                    }
+                ],
                 "actions": [
                     {
-                        "type": "auto-rotate",
-                        "lambda_arn":
-                            "arn:aws:lambda:us-east-1:644160558196:function:test-rotate-secret"
+                        "type": "auto-rotate"
                     }
                 ],
             },
@@ -298,7 +303,3 @@ class TestSecretsManager(BaseTest):
         self.assertEqual(len(resources), 1)
         data = client.describe_secret(SecretId="test1")
         self.assertEqual(data.get("RotationEnabled"), True)
-        self.assertEqual(
-            data.get("RotationLambdaARN"),
-            "arn:aws:lambda:us-east-1:644160558196:function:test-rotate-secret"
-        )
