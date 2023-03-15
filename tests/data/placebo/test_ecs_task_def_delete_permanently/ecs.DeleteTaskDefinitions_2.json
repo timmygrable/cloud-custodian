@@ -3,7 +3,7 @@
     "data": {
         "taskDefinitions": [
             {
-                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:9",
+                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:19",
                 "containerDefinitions": [
                     {
                         "name": "test-container-name",
@@ -37,7 +37,7 @@
                 "family": "testing-task-def-delete",
                 "executionRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
                 "networkMode": "awsvpc",
-                "revision": 9,
+                "revision": 19,
                 "volumes": [],
                 "status": "DELETE_IN_PROGRESS",
                 "requiresAttributes": [
@@ -86,509 +86,9 @@
                     "month": 3,
                     "day": 15,
                     "hour": 17,
-                    "minute": 2,
-                    "second": 7,
-                    "microsecond": 883000
-                },
-                "deregisteredAt": {
-                    "__class__": "datetime",
-                    "year": 2023,
-                    "month": 3,
-                    "day": 15,
-                    "hour": 17,
-                    "minute": 6,
-                    "second": 6,
-                    "microsecond": 613000
-                },
-                "registeredBy": "arn:aws:iam::644160558196:user/timmy"
-            },
-            {
-                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:10",
-                "containerDefinitions": [
-                    {
-                        "name": "test-container-name",
-                        "image": "644160558196.dkr.ecr.us-east-1.amazonaws.com/docker-on-aws/nodejs:latest",
-                        "cpu": 0,
-                        "portMappings": [
-                            {
-                                "containerPort": 80,
-                                "hostPort": 80,
-                                "protocol": "tcp",
-                                "name": "test-container-name-80-tcp",
-                                "appProtocol": "http"
-                            }
-                        ],
-                        "essential": true,
-                        "environment": [],
-                        "environmentFiles": [],
-                        "mountPoints": [],
-                        "volumesFrom": [],
-                        "logConfiguration": {
-                            "logDriver": "awslogs",
-                            "options": {
-                                "awslogs-create-group": "true",
-                                "awslogs-group": "/ecs/testing-task-def-delete",
-                                "awslogs-region": "us-east-1",
-                                "awslogs-stream-prefix": "ecs"
-                            }
-                        }
-                    }
-                ],
-                "family": "testing-task-def-delete",
-                "executionRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
-                "networkMode": "awsvpc",
-                "revision": 10,
-                "volumes": [],
-                "status": "DELETE_IN_PROGRESS",
-                "requiresAttributes": [
-                    {
-                        "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-                    },
-                    {
-                        "name": "ecs.capability.execution-role-awslogs"
-                    },
-                    {
-                        "name": "com.amazonaws.ecs.capability.ecr-auth"
-                    },
-                    {
-                        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-                    },
-                    {
-                        "name": "ecs.capability.execution-role-ecr-pull"
-                    },
-                    {
-                        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-                    },
-                    {
-                        "name": "ecs.capability.task-eni"
-                    },
-                    {
-                        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
-                    }
-                ],
-                "placementConstraints": [],
-                "compatibilities": [
-                    "EC2",
-                    "FARGATE"
-                ],
-                "runtimePlatform": {
-                    "cpuArchitecture": "X86_64",
-                    "operatingSystemFamily": "LINUX"
-                },
-                "requiresCompatibilities": [
-                    "FARGATE"
-                ],
-                "cpu": "1024",
-                "memory": "2048",
-                "registeredAt": {
-                    "__class__": "datetime",
-                    "year": 2023,
-                    "month": 3,
-                    "day": 15,
-                    "hour": 17,
-                    "minute": 2,
-                    "second": 28,
-                    "microsecond": 110000
-                },
-                "deregisteredAt": {
-                    "__class__": "datetime",
-                    "year": 2023,
-                    "month": 3,
-                    "day": 15,
-                    "hour": 17,
-                    "minute": 6,
-                    "second": 6,
-                    "microsecond": 692000
-                },
-                "registeredBy": "arn:aws:iam::644160558196:user/timmy"
-            },
-            {
-                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:11",
-                "containerDefinitions": [
-                    {
-                        "name": "test-container-name",
-                        "image": "644160558196.dkr.ecr.us-east-1.amazonaws.com/docker-on-aws/nodejs:latest",
-                        "cpu": 0,
-                        "portMappings": [
-                            {
-                                "containerPort": 80,
-                                "hostPort": 80,
-                                "protocol": "tcp",
-                                "name": "test-container-name-80-tcp",
-                                "appProtocol": "http"
-                            }
-                        ],
-                        "essential": true,
-                        "environment": [],
-                        "environmentFiles": [],
-                        "mountPoints": [],
-                        "volumesFrom": [],
-                        "logConfiguration": {
-                            "logDriver": "awslogs",
-                            "options": {
-                                "awslogs-create-group": "true",
-                                "awslogs-group": "/ecs/testing-task-def-delete",
-                                "awslogs-region": "us-east-1",
-                                "awslogs-stream-prefix": "ecs"
-                            }
-                        }
-                    }
-                ],
-                "family": "testing-task-def-delete",
-                "executionRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
-                "networkMode": "awsvpc",
-                "revision": 11,
-                "volumes": [],
-                "status": "DELETE_IN_PROGRESS",
-                "requiresAttributes": [
-                    {
-                        "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-                    },
-                    {
-                        "name": "ecs.capability.execution-role-awslogs"
-                    },
-                    {
-                        "name": "com.amazonaws.ecs.capability.ecr-auth"
-                    },
-                    {
-                        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-                    },
-                    {
-                        "name": "ecs.capability.execution-role-ecr-pull"
-                    },
-                    {
-                        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-                    },
-                    {
-                        "name": "ecs.capability.task-eni"
-                    },
-                    {
-                        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
-                    }
-                ],
-                "placementConstraints": [],
-                "compatibilities": [
-                    "EC2",
-                    "FARGATE"
-                ],
-                "runtimePlatform": {
-                    "cpuArchitecture": "X86_64",
-                    "operatingSystemFamily": "LINUX"
-                },
-                "requiresCompatibilities": [
-                    "FARGATE"
-                ],
-                "cpu": "1024",
-                "memory": "2048",
-                "registeredAt": {
-                    "__class__": "datetime",
-                    "year": 2023,
-                    "month": 3,
-                    "day": 15,
-                    "hour": 17,
-                    "minute": 2,
-                    "second": 34,
-                    "microsecond": 662000
-                },
-                "deregisteredAt": {
-                    "__class__": "datetime",
-                    "year": 2023,
-                    "month": 3,
-                    "day": 15,
-                    "hour": 17,
-                    "minute": 6,
-                    "second": 6,
-                    "microsecond": 781000
-                },
-                "registeredBy": "arn:aws:iam::644160558196:user/timmy"
-            },
-            {
-                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:12",
-                "containerDefinitions": [
-                    {
-                        "name": "test-container-name",
-                        "image": "644160558196.dkr.ecr.us-east-1.amazonaws.com/docker-on-aws/nodejs:latest",
-                        "cpu": 0,
-                        "portMappings": [
-                            {
-                                "containerPort": 80,
-                                "hostPort": 80,
-                                "protocol": "tcp",
-                                "name": "test-container-name-80-tcp",
-                                "appProtocol": "http"
-                            }
-                        ],
-                        "essential": true,
-                        "environment": [],
-                        "environmentFiles": [],
-                        "mountPoints": [],
-                        "volumesFrom": [],
-                        "logConfiguration": {
-                            "logDriver": "awslogs",
-                            "options": {
-                                "awslogs-create-group": "true",
-                                "awslogs-group": "/ecs/testing-task-def-delete",
-                                "awslogs-region": "us-east-1",
-                                "awslogs-stream-prefix": "ecs"
-                            }
-                        }
-                    }
-                ],
-                "family": "testing-task-def-delete",
-                "executionRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
-                "networkMode": "awsvpc",
-                "revision": 12,
-                "volumes": [],
-                "status": "DELETE_IN_PROGRESS",
-                "requiresAttributes": [
-                    {
-                        "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-                    },
-                    {
-                        "name": "ecs.capability.execution-role-awslogs"
-                    },
-                    {
-                        "name": "com.amazonaws.ecs.capability.ecr-auth"
-                    },
-                    {
-                        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-                    },
-                    {
-                        "name": "ecs.capability.execution-role-ecr-pull"
-                    },
-                    {
-                        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-                    },
-                    {
-                        "name": "ecs.capability.task-eni"
-                    },
-                    {
-                        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
-                    }
-                ],
-                "placementConstraints": [],
-                "compatibilities": [
-                    "EC2",
-                    "FARGATE"
-                ],
-                "runtimePlatform": {
-                    "cpuArchitecture": "X86_64",
-                    "operatingSystemFamily": "LINUX"
-                },
-                "requiresCompatibilities": [
-                    "FARGATE"
-                ],
-                "cpu": "1024",
-                "memory": "2048",
-                "registeredAt": {
-                    "__class__": "datetime",
-                    "year": 2023,
-                    "month": 3,
-                    "day": 15,
-                    "hour": 17,
-                    "minute": 2,
-                    "second": 38,
-                    "microsecond": 766000
-                },
-                "deregisteredAt": {
-                    "__class__": "datetime",
-                    "year": 2023,
-                    "month": 3,
-                    "day": 15,
-                    "hour": 17,
-                    "minute": 6,
-                    "second": 6,
-                    "microsecond": 856000
-                },
-                "registeredBy": "arn:aws:iam::644160558196:user/timmy"
-            },
-            {
-                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:13",
-                "containerDefinitions": [
-                    {
-                        "name": "test-container-name",
-                        "image": "644160558196.dkr.ecr.us-east-1.amazonaws.com/docker-on-aws/nodejs:latest",
-                        "cpu": 0,
-                        "portMappings": [
-                            {
-                                "containerPort": 80,
-                                "hostPort": 80,
-                                "protocol": "tcp",
-                                "name": "test-container-name-80-tcp",
-                                "appProtocol": "http"
-                            }
-                        ],
-                        "essential": true,
-                        "environment": [],
-                        "environmentFiles": [],
-                        "mountPoints": [],
-                        "volumesFrom": [],
-                        "logConfiguration": {
-                            "logDriver": "awslogs",
-                            "options": {
-                                "awslogs-create-group": "true",
-                                "awslogs-group": "/ecs/testing-task-def-delete",
-                                "awslogs-region": "us-east-1",
-                                "awslogs-stream-prefix": "ecs"
-                            }
-                        }
-                    }
-                ],
-                "family": "testing-task-def-delete",
-                "executionRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
-                "networkMode": "awsvpc",
-                "revision": 13,
-                "volumes": [],
-                "status": "DELETE_IN_PROGRESS",
-                "requiresAttributes": [
-                    {
-                        "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-                    },
-                    {
-                        "name": "ecs.capability.execution-role-awslogs"
-                    },
-                    {
-                        "name": "com.amazonaws.ecs.capability.ecr-auth"
-                    },
-                    {
-                        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-                    },
-                    {
-                        "name": "ecs.capability.execution-role-ecr-pull"
-                    },
-                    {
-                        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-                    },
-                    {
-                        "name": "ecs.capability.task-eni"
-                    },
-                    {
-                        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
-                    }
-                ],
-                "placementConstraints": [],
-                "compatibilities": [
-                    "EC2",
-                    "FARGATE"
-                ],
-                "runtimePlatform": {
-                    "cpuArchitecture": "X86_64",
-                    "operatingSystemFamily": "LINUX"
-                },
-                "requiresCompatibilities": [
-                    "FARGATE"
-                ],
-                "cpu": "1024",
-                "memory": "2048",
-                "registeredAt": {
-                    "__class__": "datetime",
-                    "year": 2023,
-                    "month": 3,
-                    "day": 15,
-                    "hour": 17,
-                    "minute": 2,
-                    "second": 41,
-                    "microsecond": 472000
-                },
-                "deregisteredAt": {
-                    "__class__": "datetime",
-                    "year": 2023,
-                    "month": 3,
-                    "day": 15,
-                    "hour": 17,
-                    "minute": 6,
-                    "second": 6,
-                    "microsecond": 931000
-                },
-                "registeredBy": "arn:aws:iam::644160558196:user/timmy"
-            },
-            {
-                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:14",
-                "containerDefinitions": [
-                    {
-                        "name": "test-container-name",
-                        "image": "644160558196.dkr.ecr.us-east-1.amazonaws.com/docker-on-aws/nodejs:latest",
-                        "cpu": 0,
-                        "portMappings": [
-                            {
-                                "containerPort": 80,
-                                "hostPort": 80,
-                                "protocol": "tcp",
-                                "name": "test-container-name-80-tcp",
-                                "appProtocol": "http"
-                            }
-                        ],
-                        "essential": true,
-                        "environment": [],
-                        "environmentFiles": [],
-                        "mountPoints": [],
-                        "volumesFrom": [],
-                        "logConfiguration": {
-                            "logDriver": "awslogs",
-                            "options": {
-                                "awslogs-create-group": "true",
-                                "awslogs-group": "/ecs/testing-task-def-delete",
-                                "awslogs-region": "us-east-1",
-                                "awslogs-stream-prefix": "ecs"
-                            }
-                        }
-                    }
-                ],
-                "family": "testing-task-def-delete",
-                "executionRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
-                "networkMode": "awsvpc",
-                "revision": 14,
-                "volumes": [],
-                "status": "DELETE_IN_PROGRESS",
-                "requiresAttributes": [
-                    {
-                        "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-                    },
-                    {
-                        "name": "ecs.capability.execution-role-awslogs"
-                    },
-                    {
-                        "name": "com.amazonaws.ecs.capability.ecr-auth"
-                    },
-                    {
-                        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-                    },
-                    {
-                        "name": "ecs.capability.execution-role-ecr-pull"
-                    },
-                    {
-                        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-                    },
-                    {
-                        "name": "ecs.capability.task-eni"
-                    },
-                    {
-                        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
-                    }
-                ],
-                "placementConstraints": [],
-                "compatibilities": [
-                    "EC2",
-                    "FARGATE"
-                ],
-                "runtimePlatform": {
-                    "cpuArchitecture": "X86_64",
-                    "operatingSystemFamily": "LINUX"
-                },
-                "requiresCompatibilities": [
-                    "FARGATE"
-                ],
-                "cpu": "1024",
-                "memory": "2048",
-                "registeredAt": {
-                    "__class__": "datetime",
-                    "year": 2023,
-                    "month": 3,
-                    "day": 15,
-                    "hour": 17,
-                    "minute": 2,
-                    "second": 44,
-                    "microsecond": 662000
+                    "minute": 3,
+                    "second": 0,
+                    "microsecond": 358000
                 },
                 "deregisteredAt": {
                     "__class__": "datetime",
@@ -598,12 +98,12 @@
                     "hour": 17,
                     "minute": 6,
                     "second": 7,
-                    "microsecond": 8000
+                    "microsecond": 405000
                 },
                 "registeredBy": "arn:aws:iam::644160558196:user/timmy"
             },
             {
-                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:15",
+                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:20",
                 "containerDefinitions": [
                     {
                         "name": "test-container-name",
@@ -637,7 +137,7 @@
                 "family": "testing-task-def-delete",
                 "executionRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
                 "networkMode": "awsvpc",
-                "revision": 15,
+                "revision": 20,
                 "volumes": [],
                 "status": "DELETE_IN_PROGRESS",
                 "requiresAttributes": [
@@ -686,9 +186,9 @@
                     "month": 3,
                     "day": 15,
                     "hour": 17,
-                    "minute": 2,
-                    "second": 47,
-                    "microsecond": 676000
+                    "minute": 3,
+                    "second": 3,
+                    "microsecond": 644000
                 },
                 "deregisteredAt": {
                     "__class__": "datetime",
@@ -698,12 +198,12 @@
                     "hour": 17,
                     "minute": 6,
                     "second": 7,
-                    "microsecond": 88000
+                    "microsecond": 480000
                 },
                 "registeredBy": "arn:aws:iam::644160558196:user/timmy"
             },
             {
-                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:16",
+                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:21",
                 "containerDefinitions": [
                     {
                         "name": "test-container-name",
@@ -737,7 +237,7 @@
                 "family": "testing-task-def-delete",
                 "executionRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
                 "networkMode": "awsvpc",
-                "revision": 16,
+                "revision": 21,
                 "volumes": [],
                 "status": "DELETE_IN_PROGRESS",
                 "requiresAttributes": [
@@ -786,9 +286,9 @@
                     "month": 3,
                     "day": 15,
                     "hour": 17,
-                    "minute": 2,
-                    "second": 50,
-                    "microsecond": 939000
+                    "minute": 3,
+                    "second": 33,
+                    "microsecond": 354000
                 },
                 "deregisteredAt": {
                     "__class__": "datetime",
@@ -798,12 +298,12 @@
                     "hour": 17,
                     "minute": 6,
                     "second": 7,
-                    "microsecond": 161000
+                    "microsecond": 558000
                 },
                 "registeredBy": "arn:aws:iam::644160558196:user/timmy"
             },
             {
-                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:17",
+                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:22",
                 "containerDefinitions": [
                     {
                         "name": "test-container-name",
@@ -837,7 +337,7 @@
                 "family": "testing-task-def-delete",
                 "executionRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
                 "networkMode": "awsvpc",
-                "revision": 17,
+                "revision": 22,
                 "volumes": [],
                 "status": "DELETE_IN_PROGRESS",
                 "requiresAttributes": [
@@ -886,9 +386,9 @@
                     "month": 3,
                     "day": 15,
                     "hour": 17,
-                    "minute": 2,
-                    "second": 54,
-                    "microsecond": 273000
+                    "minute": 3,
+                    "second": 36,
+                    "microsecond": 643000
                 },
                 "deregisteredAt": {
                     "__class__": "datetime",
@@ -898,12 +398,12 @@
                     "hour": 17,
                     "minute": 6,
                     "second": 7,
-                    "microsecond": 239000
+                    "microsecond": 638000
                 },
                 "registeredBy": "arn:aws:iam::644160558196:user/timmy"
             },
             {
-                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:18",
+                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:23",
                 "containerDefinitions": [
                     {
                         "name": "test-container-name",
@@ -937,7 +437,7 @@
                 "family": "testing-task-def-delete",
                 "executionRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
                 "networkMode": "awsvpc",
-                "revision": 18,
+                "revision": 23,
                 "volumes": [],
                 "status": "DELETE_IN_PROGRESS",
                 "requiresAttributes": [
@@ -986,9 +486,209 @@
                     "month": 3,
                     "day": 15,
                     "hour": 17,
-                    "minute": 2,
+                    "minute": 3,
+                    "second": 49,
+                    "microsecond": 663000
+                },
+                "deregisteredAt": {
+                    "__class__": "datetime",
+                    "year": 2023,
+                    "month": 3,
+                    "day": 15,
+                    "hour": 17,
+                    "minute": 6,
+                    "second": 7,
+                    "microsecond": 706000
+                },
+                "registeredBy": "arn:aws:iam::644160558196:user/timmy"
+            },
+            {
+                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:24",
+                "containerDefinitions": [
+                    {
+                        "name": "test-container-name",
+                        "image": "644160558196.dkr.ecr.us-east-1.amazonaws.com/docker-on-aws/nodejs:latest",
+                        "cpu": 0,
+                        "portMappings": [
+                            {
+                                "containerPort": 80,
+                                "hostPort": 80,
+                                "protocol": "tcp",
+                                "name": "test-container-name-80-tcp",
+                                "appProtocol": "http"
+                            }
+                        ],
+                        "essential": true,
+                        "environment": [],
+                        "environmentFiles": [],
+                        "mountPoints": [],
+                        "volumesFrom": [],
+                        "logConfiguration": {
+                            "logDriver": "awslogs",
+                            "options": {
+                                "awslogs-create-group": "true",
+                                "awslogs-group": "/ecs/testing-task-def-delete",
+                                "awslogs-region": "us-east-1",
+                                "awslogs-stream-prefix": "ecs"
+                            }
+                        }
+                    }
+                ],
+                "family": "testing-task-def-delete",
+                "executionRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
+                "networkMode": "awsvpc",
+                "revision": 24,
+                "volumes": [],
+                "status": "DELETE_IN_PROGRESS",
+                "requiresAttributes": [
+                    {
+                        "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+                    },
+                    {
+                        "name": "ecs.capability.execution-role-awslogs"
+                    },
+                    {
+                        "name": "com.amazonaws.ecs.capability.ecr-auth"
+                    },
+                    {
+                        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+                    },
+                    {
+                        "name": "ecs.capability.execution-role-ecr-pull"
+                    },
+                    {
+                        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+                    },
+                    {
+                        "name": "ecs.capability.task-eni"
+                    },
+                    {
+                        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+                    }
+                ],
+                "placementConstraints": [],
+                "compatibilities": [
+                    "EC2",
+                    "FARGATE"
+                ],
+                "runtimePlatform": {
+                    "cpuArchitecture": "X86_64",
+                    "operatingSystemFamily": "LINUX"
+                },
+                "requiresCompatibilities": [
+                    "FARGATE"
+                ],
+                "cpu": "1024",
+                "memory": "2048",
+                "registeredAt": {
+                    "__class__": "datetime",
+                    "year": 2023,
+                    "month": 3,
+                    "day": 15,
+                    "hour": 17,
+                    "minute": 3,
+                    "second": 53,
+                    "microsecond": 655000
+                },
+                "deregisteredAt": {
+                    "__class__": "datetime",
+                    "year": 2023,
+                    "month": 3,
+                    "day": 15,
+                    "hour": 17,
+                    "minute": 6,
+                    "second": 7,
+                    "microsecond": 782000
+                },
+                "registeredBy": "arn:aws:iam::644160558196:user/timmy"
+            },
+            {
+                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:25",
+                "containerDefinitions": [
+                    {
+                        "name": "test-container-name",
+                        "image": "644160558196.dkr.ecr.us-east-1.amazonaws.com/docker-on-aws/nodejs:latest",
+                        "cpu": 0,
+                        "portMappings": [
+                            {
+                                "containerPort": 80,
+                                "hostPort": 80,
+                                "protocol": "tcp",
+                                "name": "test-container-name-80-tcp",
+                                "appProtocol": "http"
+                            }
+                        ],
+                        "essential": true,
+                        "environment": [],
+                        "environmentFiles": [],
+                        "mountPoints": [],
+                        "volumesFrom": [],
+                        "logConfiguration": {
+                            "logDriver": "awslogs",
+                            "options": {
+                                "awslogs-create-group": "true",
+                                "awslogs-group": "/ecs/testing-task-def-delete",
+                                "awslogs-region": "us-east-1",
+                                "awslogs-stream-prefix": "ecs"
+                            }
+                        }
+                    }
+                ],
+                "family": "testing-task-def-delete",
+                "executionRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
+                "networkMode": "awsvpc",
+                "revision": 25,
+                "volumes": [],
+                "status": "DELETE_IN_PROGRESS",
+                "requiresAttributes": [
+                    {
+                        "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+                    },
+                    {
+                        "name": "ecs.capability.execution-role-awslogs"
+                    },
+                    {
+                        "name": "com.amazonaws.ecs.capability.ecr-auth"
+                    },
+                    {
+                        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+                    },
+                    {
+                        "name": "ecs.capability.execution-role-ecr-pull"
+                    },
+                    {
+                        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+                    },
+                    {
+                        "name": "ecs.capability.task-eni"
+                    },
+                    {
+                        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+                    }
+                ],
+                "placementConstraints": [],
+                "compatibilities": [
+                    "EC2",
+                    "FARGATE"
+                ],
+                "runtimePlatform": {
+                    "cpuArchitecture": "X86_64",
+                    "operatingSystemFamily": "LINUX"
+                },
+                "requiresCompatibilities": [
+                    "FARGATE"
+                ],
+                "cpu": "1024",
+                "memory": "2048",
+                "registeredAt": {
+                    "__class__": "datetime",
+                    "year": 2023,
+                    "month": 3,
+                    "day": 15,
+                    "hour": 17,
+                    "minute": 3,
                     "second": 57,
-                    "microsecond": 409000
+                    "microsecond": 520000
                 },
                 "deregisteredAt": {
                     "__class__": "datetime",
@@ -998,7 +698,307 @@
                     "hour": 17,
                     "minute": 6,
                     "second": 7,
-                    "microsecond": 329000
+                    "microsecond": 860000
+                },
+                "registeredBy": "arn:aws:iam::644160558196:user/timmy"
+            },
+            {
+                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:26",
+                "containerDefinitions": [
+                    {
+                        "name": "test-container-name",
+                        "image": "644160558196.dkr.ecr.us-east-1.amazonaws.com/docker-on-aws/nodejs:latest",
+                        "cpu": 0,
+                        "portMappings": [
+                            {
+                                "containerPort": 80,
+                                "hostPort": 80,
+                                "protocol": "tcp",
+                                "name": "test-container-name-80-tcp",
+                                "appProtocol": "http"
+                            }
+                        ],
+                        "essential": true,
+                        "environment": [],
+                        "environmentFiles": [],
+                        "mountPoints": [],
+                        "volumesFrom": [],
+                        "logConfiguration": {
+                            "logDriver": "awslogs",
+                            "options": {
+                                "awslogs-create-group": "true",
+                                "awslogs-group": "/ecs/testing-task-def-delete",
+                                "awslogs-region": "us-east-1",
+                                "awslogs-stream-prefix": "ecs"
+                            }
+                        }
+                    }
+                ],
+                "family": "testing-task-def-delete",
+                "executionRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
+                "networkMode": "awsvpc",
+                "revision": 26,
+                "volumes": [],
+                "status": "DELETE_IN_PROGRESS",
+                "requiresAttributes": [
+                    {
+                        "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+                    },
+                    {
+                        "name": "ecs.capability.execution-role-awslogs"
+                    },
+                    {
+                        "name": "com.amazonaws.ecs.capability.ecr-auth"
+                    },
+                    {
+                        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+                    },
+                    {
+                        "name": "ecs.capability.execution-role-ecr-pull"
+                    },
+                    {
+                        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+                    },
+                    {
+                        "name": "ecs.capability.task-eni"
+                    },
+                    {
+                        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+                    }
+                ],
+                "placementConstraints": [],
+                "compatibilities": [
+                    "EC2",
+                    "FARGATE"
+                ],
+                "runtimePlatform": {
+                    "cpuArchitecture": "X86_64",
+                    "operatingSystemFamily": "LINUX"
+                },
+                "requiresCompatibilities": [
+                    "FARGATE"
+                ],
+                "cpu": "1024",
+                "memory": "2048",
+                "registeredAt": {
+                    "__class__": "datetime",
+                    "year": 2023,
+                    "month": 3,
+                    "day": 15,
+                    "hour": 17,
+                    "minute": 4,
+                    "second": 0,
+                    "microsecond": 950000
+                },
+                "deregisteredAt": {
+                    "__class__": "datetime",
+                    "year": 2023,
+                    "month": 3,
+                    "day": 15,
+                    "hour": 17,
+                    "minute": 6,
+                    "second": 7,
+                    "microsecond": 954000
+                },
+                "registeredBy": "arn:aws:iam::644160558196:user/timmy"
+            },
+            {
+                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:27",
+                "containerDefinitions": [
+                    {
+                        "name": "test-container-name",
+                        "image": "644160558196.dkr.ecr.us-east-1.amazonaws.com/docker-on-aws/nodejs:latest",
+                        "cpu": 0,
+                        "portMappings": [
+                            {
+                                "containerPort": 80,
+                                "hostPort": 80,
+                                "protocol": "tcp",
+                                "name": "test-container-name-80-tcp",
+                                "appProtocol": "http"
+                            }
+                        ],
+                        "essential": true,
+                        "environment": [],
+                        "environmentFiles": [],
+                        "mountPoints": [],
+                        "volumesFrom": [],
+                        "logConfiguration": {
+                            "logDriver": "awslogs",
+                            "options": {
+                                "awslogs-create-group": "true",
+                                "awslogs-group": "/ecs/testing-task-def-delete",
+                                "awslogs-region": "us-east-1",
+                                "awslogs-stream-prefix": "ecs"
+                            }
+                        }
+                    }
+                ],
+                "family": "testing-task-def-delete",
+                "executionRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
+                "networkMode": "awsvpc",
+                "revision": 27,
+                "volumes": [],
+                "status": "DELETE_IN_PROGRESS",
+                "requiresAttributes": [
+                    {
+                        "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+                    },
+                    {
+                        "name": "ecs.capability.execution-role-awslogs"
+                    },
+                    {
+                        "name": "com.amazonaws.ecs.capability.ecr-auth"
+                    },
+                    {
+                        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+                    },
+                    {
+                        "name": "ecs.capability.execution-role-ecr-pull"
+                    },
+                    {
+                        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+                    },
+                    {
+                        "name": "ecs.capability.task-eni"
+                    },
+                    {
+                        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+                    }
+                ],
+                "placementConstraints": [],
+                "compatibilities": [
+                    "EC2",
+                    "FARGATE"
+                ],
+                "runtimePlatform": {
+                    "cpuArchitecture": "X86_64",
+                    "operatingSystemFamily": "LINUX"
+                },
+                "requiresCompatibilities": [
+                    "FARGATE"
+                ],
+                "cpu": "1024",
+                "memory": "2048",
+                "registeredAt": {
+                    "__class__": "datetime",
+                    "year": 2023,
+                    "month": 3,
+                    "day": 15,
+                    "hour": 17,
+                    "minute": 4,
+                    "second": 4,
+                    "microsecond": 395000
+                },
+                "deregisteredAt": {
+                    "__class__": "datetime",
+                    "year": 2023,
+                    "month": 3,
+                    "day": 15,
+                    "hour": 17,
+                    "minute": 6,
+                    "second": 8,
+                    "microsecond": 36000
+                },
+                "registeredBy": "arn:aws:iam::644160558196:user/timmy"
+            },
+            {
+                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:28",
+                "containerDefinitions": [
+                    {
+                        "name": "test-container-name",
+                        "image": "644160558196.dkr.ecr.us-east-1.amazonaws.com/docker-on-aws/nodejs:latest",
+                        "cpu": 0,
+                        "portMappings": [
+                            {
+                                "containerPort": 80,
+                                "hostPort": 80,
+                                "protocol": "tcp",
+                                "name": "test-container-name-80-tcp",
+                                "appProtocol": "http"
+                            }
+                        ],
+                        "essential": true,
+                        "environment": [],
+                        "environmentFiles": [],
+                        "mountPoints": [],
+                        "volumesFrom": [],
+                        "logConfiguration": {
+                            "logDriver": "awslogs",
+                            "options": {
+                                "awslogs-create-group": "true",
+                                "awslogs-group": "/ecs/testing-task-def-delete",
+                                "awslogs-region": "us-east-1",
+                                "awslogs-stream-prefix": "ecs"
+                            }
+                        }
+                    }
+                ],
+                "family": "testing-task-def-delete",
+                "executionRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
+                "networkMode": "awsvpc",
+                "revision": 28,
+                "volumes": [],
+                "status": "DELETE_IN_PROGRESS",
+                "requiresAttributes": [
+                    {
+                        "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+                    },
+                    {
+                        "name": "ecs.capability.execution-role-awslogs"
+                    },
+                    {
+                        "name": "com.amazonaws.ecs.capability.ecr-auth"
+                    },
+                    {
+                        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+                    },
+                    {
+                        "name": "ecs.capability.execution-role-ecr-pull"
+                    },
+                    {
+                        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+                    },
+                    {
+                        "name": "ecs.capability.task-eni"
+                    },
+                    {
+                        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+                    }
+                ],
+                "placementConstraints": [],
+                "compatibilities": [
+                    "EC2",
+                    "FARGATE"
+                ],
+                "runtimePlatform": {
+                    "cpuArchitecture": "X86_64",
+                    "operatingSystemFamily": "LINUX"
+                },
+                "requiresCompatibilities": [
+                    "FARGATE"
+                ],
+                "cpu": "1024",
+                "memory": "2048",
+                "registeredAt": {
+                    "__class__": "datetime",
+                    "year": 2023,
+                    "month": 3,
+                    "day": 15,
+                    "hour": 17,
+                    "minute": 4,
+                    "second": 7,
+                    "microsecond": 912000
+                },
+                "deregisteredAt": {
+                    "__class__": "datetime",
+                    "year": 2023,
+                    "month": 3,
+                    "day": 15,
+                    "hour": 17,
+                    "minute": 6,
+                    "second": 8,
+                    "microsecond": 110000
                 },
                 "registeredBy": "arn:aws:iam::644160558196:user/timmy"
             }

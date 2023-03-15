@@ -2,7 +2,7 @@
     "status_code": 200,
     "data": {
         "taskDefinition": {
-            "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:9",
+            "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:32",
             "containerDefinitions": [
                 {
                     "name": "test-container-name",
@@ -36,9 +36,9 @@
             "family": "testing-task-def-delete",
             "executionRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
             "networkMode": "awsvpc",
-            "revision": 9,
+            "revision": 32,
             "volumes": [],
-            "status": "ACTIVE",
+            "status": "INACTIVE",
             "requiresAttributes": [
                 {
                     "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
@@ -85,13 +85,12 @@
                 "month": 3,
                 "day": 15,
                 "hour": 17,
-                "minute": 2,
-                "second": 7,
-                "microsecond": 883000
+                "minute": 4,
+                "second": 46,
+                "microsecond": 514000
             },
             "registeredBy": "arn:aws:iam::644160558196:user/timmy"
         },
-        "tags": [],
         "ResponseMetadata": {}
     }
 }

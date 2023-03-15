@@ -3,7 +3,7 @@
     "data": {
         "taskDefinitions": [
             {
-                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:9",
+                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:29",
                 "containerDefinitions": [
                     {
                         "name": "test-container-name",
@@ -37,7 +37,7 @@
                 "family": "testing-task-def-delete",
                 "executionRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
                 "networkMode": "awsvpc",
-                "revision": 9,
+                "revision": 29,
                 "volumes": [],
                 "status": "DELETE_IN_PROGRESS",
                 "requiresAttributes": [
@@ -86,9 +86,9 @@
                     "month": 3,
                     "day": 15,
                     "hour": 17,
-                    "minute": 2,
-                    "second": 7,
-                    "microsecond": 883000
+                    "minute": 4,
+                    "second": 36,
+                    "microsecond": 848000
                 },
                 "deregisteredAt": {
                     "__class__": "datetime",
@@ -97,13 +97,13 @@
                     "day": 15,
                     "hour": 17,
                     "minute": 6,
-                    "second": 6,
-                    "microsecond": 613000
+                    "second": 8,
+                    "microsecond": 182000
                 },
                 "registeredBy": "arn:aws:iam::644160558196:user/timmy"
             },
             {
-                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:10",
+                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:30",
                 "containerDefinitions": [
                     {
                         "name": "test-container-name",
@@ -137,7 +137,7 @@
                 "family": "testing-task-def-delete",
                 "executionRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
                 "networkMode": "awsvpc",
-                "revision": 10,
+                "revision": 30,
                 "volumes": [],
                 "status": "DELETE_IN_PROGRESS",
                 "requiresAttributes": [
@@ -186,9 +186,9 @@
                     "month": 3,
                     "day": 15,
                     "hour": 17,
-                    "minute": 2,
-                    "second": 28,
-                    "microsecond": 110000
+                    "minute": 4,
+                    "second": 40,
+                    "microsecond": 28000
                 },
                 "deregisteredAt": {
                     "__class__": "datetime",
@@ -197,13 +197,13 @@
                     "day": 15,
                     "hour": 17,
                     "minute": 6,
-                    "second": 6,
-                    "microsecond": 692000
+                    "second": 8,
+                    "microsecond": 566000
                 },
                 "registeredBy": "arn:aws:iam::644160558196:user/timmy"
             },
             {
-                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:11",
+                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:31",
                 "containerDefinitions": [
                     {
                         "name": "test-container-name",
@@ -237,7 +237,7 @@
                 "family": "testing-task-def-delete",
                 "executionRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
                 "networkMode": "awsvpc",
-                "revision": 11,
+                "revision": 31,
                 "volumes": [],
                 "status": "DELETE_IN_PROGRESS",
                 "requiresAttributes": [
@@ -286,9 +286,9 @@
                     "month": 3,
                     "day": 15,
                     "hour": 17,
-                    "minute": 2,
-                    "second": 34,
-                    "microsecond": 662000
+                    "minute": 4,
+                    "second": 43,
+                    "microsecond": 218000
                 },
                 "deregisteredAt": {
                     "__class__": "datetime",
@@ -297,13 +297,13 @@
                     "day": 15,
                     "hour": 17,
                     "minute": 6,
-                    "second": 6,
-                    "microsecond": 781000
+                    "second": 8,
+                    "microsecond": 641000
                 },
                 "registeredBy": "arn:aws:iam::644160558196:user/timmy"
             },
             {
-                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:12",
+                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:32",
                 "containerDefinitions": [
                     {
                         "name": "test-container-name",
@@ -337,7 +337,7 @@
                 "family": "testing-task-def-delete",
                 "executionRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
                 "networkMode": "awsvpc",
-                "revision": 12,
+                "revision": 32,
                 "volumes": [],
                 "status": "DELETE_IN_PROGRESS",
                 "requiresAttributes": [
@@ -386,9 +386,9 @@
                     "month": 3,
                     "day": 15,
                     "hour": 17,
-                    "minute": 2,
-                    "second": 38,
-                    "microsecond": 766000
+                    "minute": 4,
+                    "second": 46,
+                    "microsecond": 514000
                 },
                 "deregisteredAt": {
                     "__class__": "datetime",
@@ -397,13 +397,13 @@
                     "day": 15,
                     "hour": 17,
                     "minute": 6,
-                    "second": 6,
-                    "microsecond": 856000
+                    "second": 8,
+                    "microsecond": 718000
                 },
                 "registeredBy": "arn:aws:iam::644160558196:user/timmy"
             },
             {
-                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:13",
+                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:33",
                 "containerDefinitions": [
                     {
                         "name": "test-container-name",
@@ -437,7 +437,7 @@
                 "family": "testing-task-def-delete",
                 "executionRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
                 "networkMode": "awsvpc",
-                "revision": 13,
+                "revision": 33,
                 "volumes": [],
                 "status": "DELETE_IN_PROGRESS",
                 "requiresAttributes": [
@@ -486,9 +486,9 @@
                     "month": 3,
                     "day": 15,
                     "hour": 17,
-                    "minute": 2,
-                    "second": 41,
-                    "microsecond": 472000
+                    "minute": 4,
+                    "second": 49,
+                    "microsecond": 469000
                 },
                 "deregisteredAt": {
                     "__class__": "datetime",
@@ -497,13 +497,13 @@
                     "day": 15,
                     "hour": 17,
                     "minute": 6,
-                    "second": 6,
-                    "microsecond": 931000
+                    "second": 8,
+                    "microsecond": 795000
                 },
                 "registeredBy": "arn:aws:iam::644160558196:user/timmy"
             },
             {
-                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:14",
+                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:34",
                 "containerDefinitions": [
                     {
                         "name": "test-container-name",
@@ -537,7 +537,7 @@
                 "family": "testing-task-def-delete",
                 "executionRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
                 "networkMode": "awsvpc",
-                "revision": 14,
+                "revision": 34,
                 "volumes": [],
                 "status": "DELETE_IN_PROGRESS",
                 "requiresAttributes": [
@@ -586,9 +586,9 @@
                     "month": 3,
                     "day": 15,
                     "hour": 17,
-                    "minute": 2,
-                    "second": 44,
-                    "microsecond": 662000
+                    "minute": 4,
+                    "second": 52,
+                    "microsecond": 737000
                 },
                 "deregisteredAt": {
                     "__class__": "datetime",
@@ -597,13 +597,13 @@
                     "day": 15,
                     "hour": 17,
                     "minute": 6,
-                    "second": 7,
-                    "microsecond": 8000
+                    "second": 8,
+                    "microsecond": 878000
                 },
                 "registeredBy": "arn:aws:iam::644160558196:user/timmy"
             },
             {
-                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:15",
+                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:35",
                 "containerDefinitions": [
                     {
                         "name": "test-container-name",
@@ -637,7 +637,7 @@
                 "family": "testing-task-def-delete",
                 "executionRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
                 "networkMode": "awsvpc",
-                "revision": 15,
+                "revision": 35,
                 "volumes": [],
                 "status": "DELETE_IN_PROGRESS",
                 "requiresAttributes": [
@@ -686,9 +686,9 @@
                     "month": 3,
                     "day": 15,
                     "hour": 17,
-                    "minute": 2,
-                    "second": 47,
-                    "microsecond": 676000
+                    "minute": 5,
+                    "second": 9,
+                    "microsecond": 75000
                 },
                 "deregisteredAt": {
                     "__class__": "datetime",
@@ -697,13 +697,13 @@
                     "day": 15,
                     "hour": 17,
                     "minute": 6,
-                    "second": 7,
-                    "microsecond": 88000
+                    "second": 8,
+                    "microsecond": 959000
                 },
                 "registeredBy": "arn:aws:iam::644160558196:user/timmy"
             },
             {
-                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:16",
+                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:36",
                 "containerDefinitions": [
                     {
                         "name": "test-container-name",
@@ -737,7 +737,7 @@
                 "family": "testing-task-def-delete",
                 "executionRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
                 "networkMode": "awsvpc",
-                "revision": 16,
+                "revision": 36,
                 "volumes": [],
                 "status": "DELETE_IN_PROGRESS",
                 "requiresAttributes": [
@@ -786,9 +786,9 @@
                     "month": 3,
                     "day": 15,
                     "hour": 17,
-                    "minute": 2,
-                    "second": 50,
-                    "microsecond": 939000
+                    "minute": 5,
+                    "second": 12,
+                    "microsecond": 328000
                 },
                 "deregisteredAt": {
                     "__class__": "datetime",
@@ -797,13 +797,13 @@
                     "day": 15,
                     "hour": 17,
                     "minute": 6,
-                    "second": 7,
-                    "microsecond": 161000
+                    "second": 9,
+                    "microsecond": 50000
                 },
                 "registeredBy": "arn:aws:iam::644160558196:user/timmy"
             },
             {
-                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:17",
+                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:37",
                 "containerDefinitions": [
                     {
                         "name": "test-container-name",
@@ -837,7 +837,7 @@
                 "family": "testing-task-def-delete",
                 "executionRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
                 "networkMode": "awsvpc",
-                "revision": 17,
+                "revision": 37,
                 "volumes": [],
                 "status": "DELETE_IN_PROGRESS",
                 "requiresAttributes": [
@@ -886,9 +886,9 @@
                     "month": 3,
                     "day": 15,
                     "hour": 17,
-                    "minute": 2,
-                    "second": 54,
-                    "microsecond": 273000
+                    "minute": 5,
+                    "second": 14,
+                    "microsecond": 850000
                 },
                 "deregisteredAt": {
                     "__class__": "datetime",
@@ -897,13 +897,13 @@
                     "day": 15,
                     "hour": 17,
                     "minute": 6,
-                    "second": 7,
-                    "microsecond": 239000
+                    "second": 9,
+                    "microsecond": 130000
                 },
                 "registeredBy": "arn:aws:iam::644160558196:user/timmy"
             },
             {
-                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:18",
+                "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:38",
                 "containerDefinitions": [
                     {
                         "name": "test-container-name",
@@ -937,7 +937,7 @@
                 "family": "testing-task-def-delete",
                 "executionRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
                 "networkMode": "awsvpc",
-                "revision": 18,
+                "revision": 38,
                 "volumes": [],
                 "status": "DELETE_IN_PROGRESS",
                 "requiresAttributes": [
@@ -986,9 +986,9 @@
                     "month": 3,
                     "day": 15,
                     "hour": 17,
-                    "minute": 2,
-                    "second": 57,
-                    "microsecond": 409000
+                    "minute": 5,
+                    "second": 21,
+                    "microsecond": 119000
                 },
                 "deregisteredAt": {
                     "__class__": "datetime",
@@ -997,8 +997,8 @@
                     "day": 15,
                     "hour": 17,
                     "minute": 6,
-                    "second": 7,
-                    "microsecond": 329000
+                    "second": 9,
+                    "microsecond": 203000
                 },
                 "registeredBy": "arn:aws:iam::644160558196:user/timmy"
             }
