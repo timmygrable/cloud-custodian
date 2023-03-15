@@ -329,6 +329,37 @@ class TestEcsTaskDefinition(BaseTest):
             "taskDefinitionArns"
         )
         self.assertEqual(arns, [])
+        
+    def test_task_definition_delete_permanently(self):
+        session_factory = self.record_flight_data("test_ecs_task_def_delete_permanently")
+        p = self.load_policy(
+            {
+                "name": "delete-task-defs-permanently",
+                "resource": "ecs-task-definition",
+                "filters": [
+                    {
+                        "family": "testing-task-def-delete"
+                    }
+                ],
+                "actions": [
+                    {
+                        'type': 'delete',
+                    },
+                    {
+                        'type': 'delete-permanently',
+                    }
+                ],
+            },
+            session_factory=session_factory,
+        )
+        resources = p.run()
+        self.assertEqual(len(resources), 0)
+        arns = session_factory().client("ecs").list_task_definitions(
+            familyPrefix="testing-task-def-delete", status="INACTIVE"
+        ).get(
+            "taskDefinitionArns"
+        )
+        self.assertEqual(arns, [])
 
     def test_task_definition_get_resources(self):
         session_factory = self.replay_flight_data("test_ecs_task_def_query")

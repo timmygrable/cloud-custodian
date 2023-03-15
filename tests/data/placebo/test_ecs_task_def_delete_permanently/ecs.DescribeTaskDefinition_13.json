@@ -1,0 +1,124 @@
+{
+    "status_code": 200,
+    "data": {
+        "taskDefinition": {
+            "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/ecs-read-only-root:2",
+            "containerDefinitions": [
+                {
+                    "name": "Db",
+                    "image": "redis:latest",
+                    "cpu": 0,
+                    "portMappings": [
+                        {
+                            "containerPort": 6379,
+                            "hostPort": 6379,
+                            "protocol": "tcp"
+                        }
+                    ],
+                    "essential": true,
+                    "environment": [],
+                    "mountPoints": [
+                        {
+                            "sourceVolume": "host-data",
+                            "containerPath": "/data"
+                        }
+                    ],
+                    "volumesFrom": [],
+                    "readonlyRootFilesystem": true,
+                    "dockerLabels": {
+                        "role": "db"
+                    },
+                    "logConfiguration": {
+                        "logDriver": "awslogs",
+                        "options": {
+                            "awslogs-group": "/ecs/ecs-read-only-root",
+                            "awslogs-region": "us-east-1",
+                            "awslogs-stream-prefix": "ecs"
+                        }
+                    }
+                },
+                {
+                    "name": "no-read-only",
+                    "image": "wfeeq",
+                    "cpu": 0,
+                    "portMappings": [],
+                    "essential": true,
+                    "environment": [],
+                    "mountPoints": [],
+                    "volumesFrom": [],
+                    "logConfiguration": {
+                        "logDriver": "awslogs",
+                        "options": {
+                            "awslogs-group": "/ecs/ecs-read-only-root",
+                            "awslogs-region": "us-east-1",
+                            "awslogs-stream-prefix": "ecs"
+                        }
+                    }
+                }
+            ],
+            "family": "ecs-read-only-root",
+            "taskRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
+            "executionRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
+            "networkMode": "awsvpc",
+            "revision": 2,
+            "volumes": [
+                {
+                    "name": "host-data",
+                    "host": {}
+                }
+            ],
+            "status": "ACTIVE",
+            "requiresAttributes": [
+                {
+                    "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+                },
+                {
+                    "name": "ecs.capability.execution-role-awslogs"
+                },
+                {
+                    "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+                },
+                {
+                    "name": "com.amazonaws.ecs.capability.docker-remote-api.1.17"
+                },
+                {
+                    "name": "com.amazonaws.ecs.capability.task-iam-role"
+                },
+                {
+                    "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+                },
+                {
+                    "name": "ecs.capability.task-eni"
+                }
+            ],
+            "placementConstraints": [],
+            "compatibilities": [
+                "EC2",
+                "FARGATE"
+            ],
+            "requiresCompatibilities": [
+                "FARGATE"
+            ],
+            "cpu": "256",
+            "memory": "512",
+            "registeredAt": {
+                "__class__": "datetime",
+                "year": 2021,
+                "month": 2,
+                "day": 5,
+                "hour": 9,
+                "minute": 32,
+                "second": 47,
+                "microsecond": 217000
+            },
+            "registeredBy": "arn:aws:iam::644160558196:user/john.hillegass@capitalone.com"
+        },
+        "tags": [
+            {
+                "key": "c7n-timestamp",
+                "value": "2022-11-22 19:13:27.784339"
+            }
+        ],
+        "ResponseMetadata": {}
+    }
+}
