@@ -17,7 +17,7 @@
             "arn:aws:ecs:us-east-1:644160558196:task-definition/ecs-read-only-root:2",
             "arn:aws:ecs:us-east-1:644160558196:task-definition/nodejs-fargate-task:1",
             "arn:aws:ecs:us-east-1:644160558196:task-definition/nodejs-fargate-task:2",
-            "arn:aws:ecs:us-east-1:644160558196:task-definition/test-definition:10",
+            "arn:aws:ecs:us-east-1:644160558196:task-definition/test-delete-definition:1",
             "arn:aws:ecs:us-east-1:644160558196:task-definition/test-ecs-env-vars-match:1",
             "arn:aws:ecs:us-east-1:644160558196:task-definition/webapp-fargate-task:1"
         ],
