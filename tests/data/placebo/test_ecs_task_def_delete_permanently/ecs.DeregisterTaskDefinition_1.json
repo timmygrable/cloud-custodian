@@ -2,41 +2,32 @@
     "status_code": 200,
     "data": {
         "taskDefinition": {
-            "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:9",
+            "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/test-definition:10",
             "containerDefinitions": [
                 {
-                    "name": "test-container-name",
-                    "image": "644160558196.dkr.ecr.us-east-1.amazonaws.com/docker-on-aws/nodejs:latest",
+                    "name": "default",
+                    "image": "busybox",
                     "cpu": 0,
-                    "portMappings": [
-                        {
-                            "containerPort": 80,
-                            "hostPort": 80,
-                            "protocol": "tcp",
-                            "name": "test-container-name-80-tcp",
-                            "appProtocol": "http"
-                        }
-                    ],
+                    "memory": 1,
+                    "portMappings": [],
                     "essential": true,
                     "environment": [],
-                    "environmentFiles": [],
                     "mountPoints": [],
                     "volumesFrom": [],
                     "logConfiguration": {
                         "logDriver": "awslogs",
                         "options": {
-                            "awslogs-create-group": "true",
-                            "awslogs-group": "/ecs/testing-task-def-delete",
+                            "awslogs-group": "/aws/batch/job",
                             "awslogs-region": "us-east-1",
-                            "awslogs-stream-prefix": "ecs"
+                            "awslogs-stream-prefix": "test-definition"
                         }
                     }
                 }
             ],
-            "family": "testing-task-def-delete",
+            "family": "test-definition",
             "executionRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
-            "networkMode": "awsvpc",
-            "revision": 9,
+            "networkMode": "host",
+            "revision": 10,
             "volumes": [],
             "status": "INACTIVE",
             "requiresAttributes": [
@@ -47,47 +38,26 @@
                     "name": "ecs.capability.execution-role-awslogs"
                 },
                 {
-                    "name": "com.amazonaws.ecs.capability.ecr-auth"
-                },
-                {
                     "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
                 },
                 {
-                    "name": "ecs.capability.execution-role-ecr-pull"
-                },
-                {
                     "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-                },
-                {
-                    "name": "ecs.capability.task-eni"
-                },
-                {
-                    "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
                 }
             ],
             "placementConstraints": [],
             "compatibilities": [
-                "EC2",
-                "FARGATE"
+                "EXTERNAL",
+                "EC2"
             ],
-            "runtimePlatform": {
-                "cpuArchitecture": "X86_64",
-                "operatingSystemFamily": "LINUX"
-            },
-            "requiresCompatibilities": [
-                "FARGATE"
-            ],
-            "cpu": "1024",
-            "memory": "2048",
             "registeredAt": {
                 "__class__": "datetime",
                 "year": 2023,
                 "month": 3,
-                "day": 15,
-                "hour": 17,
-                "minute": 2,
-                "second": 7,
-                "microsecond": 883000
+                "day": 16,
+                "hour": 7,
+                "minute": 53,
+                "second": 31,
+                "microsecond": 625000
             },
             "registeredBy": "arn:aws:iam::644160558196:user/timmy"
         },

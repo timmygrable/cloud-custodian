@@ -2,55 +2,51 @@
     "status_code": 200,
     "data": {
         "taskDefinition": {
-            "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/testing-task-def-delete:9",
+            "taskDefinitionArn": "arn:aws:ecs:us-east-1:644160558196:task-definition/test-ecs-env-vars-match:1",
             "containerDefinitions": [
                 {
-                    "name": "test-container-name",
-                    "image": "644160558196.dkr.ecr.us-east-1.amazonaws.com/docker-on-aws/nodejs:latest",
+                    "name": "test-container",
+                    "image": "644160558196.dkr.ecr.us-east-1.amazonaws.com/c7n:latest",
                     "cpu": 0,
+                    "memoryReservation": 256,
                     "portMappings": [
                         {
-                            "containerPort": 80,
-                            "hostPort": 80,
-                            "protocol": "tcp",
-                            "name": "test-container-name-80-tcp",
-                            "appProtocol": "http"
+                            "containerPort": 21,
+                            "hostPort": 21,
+                            "protocol": "tcp"
                         }
                     ],
                     "essential": true,
-                    "environment": [],
-                    "environmentFiles": [],
-                    "mountPoints": [],
-                    "volumesFrom": [],
-                    "logConfiguration": {
-                        "logDriver": "awslogs",
-                        "options": {
-                            "awslogs-create-group": "true",
-                            "awslogs-group": "/ecs/testing-task-def-delete",
-                            "awslogs-region": "us-east-1",
-                            "awslogs-stream-prefix": "ecs"
+                    "environment": [
+                        {
+                            "name": "TestTrueEnvVar",
+                            "value": "true"
+                        },
+                        {
+                            "name": "TestFalseEnvVar",
+                            "value": "false"
                         }
-                    }
+                    ],
+                    "mountPoints": [],
+                    "volumesFrom": []
                 }
             ],
-            "family": "testing-task-def-delete",
+            "family": "test-ecs-env-vars-match",
+            "taskRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
             "executionRoleArn": "arn:aws:iam::644160558196:role/ecsTaskExecutionRole",
             "networkMode": "awsvpc",
-            "revision": 9,
+            "revision": 1,
             "volumes": [],
             "status": "ACTIVE",
             "requiresAttributes": [
                 {
-                    "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-                },
-                {
-                    "name": "ecs.capability.execution-role-awslogs"
-                },
-                {
                     "name": "com.amazonaws.ecs.capability.ecr-auth"
                 },
                 {
-                    "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+                    "name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
+                },
+                {
+                    "name": "com.amazonaws.ecs.capability.task-iam-role"
                 },
                 {
                     "name": "ecs.capability.execution-role-ecr-pull"
@@ -60,38 +56,24 @@
                 },
                 {
                     "name": "ecs.capability.task-eni"
-                },
-                {
-                    "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
                 }
             ],
             "placementConstraints": [],
             "compatibilities": [
-                "EC2",
-                "FARGATE"
+                "EC2"
             ],
-            "runtimePlatform": {
-                "cpuArchitecture": "X86_64",
-                "operatingSystemFamily": "LINUX"
-            },
             "requiresCompatibilities": [
-                "FARGATE"
+                "EC2"
             ],
-            "cpu": "1024",
-            "memory": "2048",
-            "registeredAt": {
-                "__class__": "datetime",
-                "year": 2023,
-                "month": 3,
-                "day": 15,
-                "hour": 17,
-                "minute": 2,
-                "second": 7,
-                "microsecond": 883000
-            },
-            "registeredBy": "arn:aws:iam::644160558196:user/timmy"
+            "cpu": "128",
+            "memory": "1024"
         },
-        "tags": [],
+        "tags": [
+            {
+                "key": "c7n-timestamp",
+                "value": "2022-11-22 19:13:27.784339"
+            }
+        ],
         "ResponseMetadata": {}
     }
 }
