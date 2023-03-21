@@ -2,24 +2,7 @@
     "status_code": 200,
     "data": {
         "taskDefinitionArns": [
-            "arn:aws:ecs:us-east-1:644160558196:task-definition/app-fargate-task:2",
-            "arn:aws:ecs:us-east-1:644160558196:task-definition/app-fargate-task:3",
-            "arn:aws:ecs:us-east-1:644160558196:task-definition/app-fargate-task:4",
-            "arn:aws:ecs:us-east-1:644160558196:task-definition/awsvpc:1",
-            "arn:aws:ecs:us-east-1:644160558196:task-definition/awsvpc:2",
-            "arn:aws:ecs:us-east-1:644160558196:task-definition/awsvpc:3",
-            "arn:aws:ecs:us-east-1:644160558196:task-definition/awsvpc:4",
-            "arn:aws:ecs:us-east-1:644160558196:task-definition/awsvpc:5",
-            "arn:aws:ecs:us-east-1:644160558196:task-definition/awsvpc:6",
-            "arn:aws:ecs:us-east-1:644160558196:task-definition/awsvpc:7",
-            "arn:aws:ecs:us-east-1:644160558196:task-definition/awsvpc:8",
-            "arn:aws:ecs:us-east-1:644160558196:task-definition/ecs-read-only-root:1",
-            "arn:aws:ecs:us-east-1:644160558196:task-definition/ecs-read-only-root:2",
-            "arn:aws:ecs:us-east-1:644160558196:task-definition/nodejs-fargate-task:1",
-            "arn:aws:ecs:us-east-1:644160558196:task-definition/nodejs-fargate-task:2",
-            "arn:aws:ecs:us-east-1:644160558196:task-definition/test-delete-definition:1",
-            "arn:aws:ecs:us-east-1:644160558196:task-definition/test-ecs-env-vars-match:1",
-            "arn:aws:ecs:us-east-1:644160558196:task-definition/webapp-fargate-task:1"
+            "arn:aws:ecs:us-east-1:644160558196:task-definition/test-delete-definition:1"
         ],
         "ResponseMetadata": {}
     }
