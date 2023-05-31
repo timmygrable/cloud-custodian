@@ -176,13 +176,8 @@ class Notify(BaseNotify):
             'execution_start': self.manager.ctx.start_time,
             'policy': self.manager.data}
         message['action'] = self.expand_variables(message)
-
-        for batch in utils.chunks(resources, self.batch_size):
-            message['resources'] = self.prepare_resources(batch)
-            receipt = self.send_data_message(message)
-            self.log.info("sent message:%s policy:%s template:%s count:%s" % (
-                receipt, self.manager.data['name'],
-                self.data.get('template', 'default'), len(batch)))
+        
+        self.process_batches(resources, message)
 
     def prepare_resources(self, resources):
         """Resources preparation for transport.
@@ -302,6 +297,42 @@ class Notify(BaseNotify):
             MessageBody=self.pack(message),
             MessageAttributes=attrs)
         return result['MessageId']
+    
+    def process_batches(self, resources, message):
+        packed_resources = []
+        for resource in resources:
+            # Make a list of tuples containing the compressed resource and size
+            prepared_resource = self.prepare_resources([resource])
+            packed_resource = self.pack({'resources': prepared_resource})
+            resource_size = len(packed_resource.encode('utf-8'))
+            packed_resources.append((packed_resource, resource_size))
+
+        batch = []
+        batch_size = 0
+        for packed_resource, resource_size in packed_resources:
+            # Check if adding this resource will push us over the size
+            if batch_size + resource_size >= 256 * 1024:
+                message['resources'] = batch
+                receipt = self.send_data_message(message)
+                self.log.info("sent message:%s policy:%s template:%s count:%s" % (
+                    receipt, self.manager.data['name'],
+                    self.data.get('template', 'default'), len(batch)))
+
+                # Start a new batch so we don't skip the current resource
+                batch = [packed_resource]
+                batch_size = resource_size
+            else:
+                batch.append(packed_resource)
+                batch_size += resource_size
+
+        if batch:
+            # Send the remaining resources
+            message['resources'] = batch
+            receipt = self.send_data_message(message)
+            self.log.info("sent message:%s policy:%s template:%s count:%s" % (
+                receipt, self.manager.data['name'],
+                self.data.get('template', 'default'), len(batch)))
+            
 
     @classmethod
     def register_resource(cls, registry, resource_class):
