@@ -16,8 +16,6 @@ from c7n.version import version
 
 class BaseNotify(EventAction):
 
-    batch_size = 250
-
     def expand_variables(self, message):
         """expand any variables in the action to_from/cc_from fields.
         """
@@ -311,7 +309,7 @@ class Notify(BaseNotify):
         batch_size = 0
         for packed_resource, resource_size in packed_resources:
             # Check if adding this resource will push us over the size
-            if batch_size + resource_size >= 256 * 1024:
+            if batch_size + resource_size >= 256 * 1000:
                 message['resources'] = batch
                 receipt = self.send_data_message(message)
                 self.log.info("sent message:%s policy:%s template:%s count:%s" % (
