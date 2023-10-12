@@ -40,7 +40,7 @@ class TagOpensearchDomainResource(Tag):
 
         policies:
             - name: tag-opensearch
-              resource: opensearch
+              resource: opensearch-domain
               actions:
                 - type: tag
                   key: test-key
@@ -63,7 +63,7 @@ class RemoveTagOpensearchDomainResource(RemoveTag):
 
         policies:
             - name: remove-tag-opensearch
-              resource: opensearch
+              resource: opensearch-domain
               actions:
                 - type: remove-tag
                   tags: ["tag-key"]
@@ -85,7 +85,7 @@ class MarkOpensearchDomainForOp(TagDelayedAction):
 
         policies:
           - name: opensearch-invalid-tag-mark
-            resource: opensearch
+            resource: opensearch-domain
             filters:
               - "tag:InvalidTag": present
             actions:
@@ -104,7 +104,7 @@ class DeleteOpensearchDomain(BaseAction):
 
         policies:
           - name: delete-opensearch-domain
-            resource: opensearch
+            resource: opensearch-domain
             actions:
               - type: delete
     """
