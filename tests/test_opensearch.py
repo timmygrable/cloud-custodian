@@ -3,14 +3,14 @@
 from .common import BaseTest
 
 
-class Opensearch(BaseTest):
+class OpensearchDomain(BaseTest):
 
-    def test_opensearch_tag(self):
-        session_factory = self.replay_flight_data('test_opensearch_tag')
+    def test_opensearch_domain_tag(self):
+        session_factory = self.replay_flight_data('test_opensearch_domain_tag')
         p = self.load_policy(
             {
                 'name': 'test-opensearch-tag',
-                'resource': 'opensearch',
+                'resource': 'opensearch-domain',
                 'filters': [
                     {
                         'tag:foo': 'absent',
@@ -32,12 +32,12 @@ class Opensearch(BaseTest):
         self.assertEqual(tags, [{'Key': 'foo', 'Value': 'bar'}])
 
 
-    def test_opensearch_remove_tag(self):
-        session_factory = self.replay_flight_data('test_opensearch_remove_tag')
+    def test_opensearch_domain_remove_tag(self):
+        session_factory = self.replay_flight_data('test_opensearch_domain_remove_tag')
         p = self.load_policy(
             {
                 'name': 'test-opensearch-remove-tag',
-                'resource': 'opensearch',
+                'resource': 'opensearch-domain',
                 'filters': [
                     {
                         'tag:foo': 'present',
@@ -57,12 +57,12 @@ class Opensearch(BaseTest):
         tags = client.list_tags(ARN=resources[0]['ARN'])['TagList']
         self.assertEqual(len(tags), 0)
 
-    def test_opensearch_delete(self):
-        session_factory = self.replay_flight_data('test_opensearch_delete')
+    def test_opensearch_domain_delete(self):
+        session_factory = self.replay_flight_data('test_opensearch_domain_delete')
         p = self.load_policy(
             {
                 'name': 'test-opensearch-delete',
-                'resource': 'opensearch',
+                'resource': 'opensearch-domain',
                 'filters': [{'DomainName': 'test'}],
                 'actions': [{'type': 'delete'}]
             },

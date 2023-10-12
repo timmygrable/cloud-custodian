@@ -8,8 +8,8 @@ from c7n.utils import local_session, type_schema
 from c7n.actions import BaseAction
 
 
-@resources.register('opensearch')
-class Opensearch(QueryResourceManager):
+@resources.register('opensearch-domain')
+class OpensearchDomain(QueryResourceManager):
     class resource_type(TypeInfo):
         service = 'opensearch'
         arn_type = 'domain'
@@ -30,9 +30,9 @@ class Opensearch(QueryResourceManager):
             arn_resources.append(domain_detail)
         return arn_resources
 
-@Opensearch.action_registry.register('tag')
-class TagOpenSearchResource(Tag):
-    """Create tags on an OpenSearch resource
+@OpensearchDomain.action_registry.register('tag')
+class TagOpensearchDomainResource(Tag):
+    """Create tags on an OpenSearch domain resource
 
     :example:
 
@@ -53,9 +53,9 @@ class TagOpenSearchResource(Tag):
             client.add_tags(ARN=r["ARN"], TagList=new_tags)
 
 
-@Opensearch.action_registry.register('remove-tag')
-class RemoveTagOpenSearchResource(RemoveTag):
-    """Remove tags from an OpenSearch resource
+@OpensearchDomain.action_registry.register('remove-tag')
+class RemoveTagOpensearchDomainResource(RemoveTag):
+    """Remove tags from an OpenSearch domain resource
 
     :example:
 
@@ -74,9 +74,9 @@ class RemoveTagOpenSearchResource(RemoveTag):
         for r in resources:
             client.remove_tags(ARN=r['ARN'], TagKeys=tags)
 
-Opensearch.filter_registry.register('marked-for-op', TagActionFilter)
-@Opensearch.action_registry.register('mark-for-op')
-class MarkDomainForOp(TagDelayedAction):
+OpensearchDomain.filter_registry.register('marked-for-op', TagActionFilter)
+@OpensearchDomain.action_registry.register('mark-for-op')
+class MarkOpensearchDomainForOp(TagDelayedAction):
     """Mark OpenSearch domain for deferred action
 
     :example:
@@ -94,8 +94,8 @@ class MarkDomainForOp(TagDelayedAction):
                 days: 1
     """
 
-@Opensearch.action_registry.register('delete')
-class DeleteDomain(BaseAction):
+@OpensearchDomain.action_registry.register('delete')
+class DeleteOpensearchDomain(BaseAction):
     """Delete an OpenSearch domain
 
     :example:
