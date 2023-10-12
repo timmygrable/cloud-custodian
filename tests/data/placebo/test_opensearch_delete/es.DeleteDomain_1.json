@@ -1,0 +1,124 @@
+{
+    "status_code": 200,
+    "data": {
+        "ResponseMetadata": {},
+        "DomainStatus": {
+            "DomainId": "644160558196/test",
+            "DomainName": "test",
+            "ARN": "arn:aws:es:us-east-1:644160558196:domain/test",
+            "Created": true,
+            "Deleted": true,
+            "Endpoints": {
+                "vpc": "vpc-test-at7mbgf7cv57jcc5elhmdsk5au.us-east-1.es.amazonaws.com"
+            },
+            "Processing": true,
+            "UpgradeProcessing": false,
+            "EngineVersion": "OpenSearch_2.9",
+            "ClusterConfig": {
+                "InstanceType": "r6g.large.search",
+                "InstanceCount": 3,
+                "DedicatedMasterEnabled": true,
+                "ZoneAwarenessEnabled": true,
+                "ZoneAwarenessConfig": {
+                    "AvailabilityZoneCount": 3
+                },
+                "DedicatedMasterType": "m6g.large.search",
+                "DedicatedMasterCount": 3,
+                "WarmEnabled": false,
+                "ColdStorageOptions": {
+                    "Enabled": false
+                },
+                "MultiAZWithStandbyEnabled": true
+            },
+            "EBSOptions": {
+                "EBSEnabled": true,
+                "VolumeType": "gp3",
+                "VolumeSize": 100,
+                "Iops": 3000,
+                "Throughput": 125
+            },
+            "AccessPolicies": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"},\"Action\":\"es:*\",\"Resource\":\"arn:aws:es:us-east-1:644160558196:domain/test/*\"}]}",
+            "SnapshotOptions": {},
+            "VPCOptions": {
+                "VPCId": "vpc-d2d616b5",
+                "SubnetIds": [
+                    "subnet-044d9e3b66dccd75a",
+                    "subnet-914763e7",
+                    "subnet-efbcccb7"
+                ],
+                "AvailabilityZones": [
+                    "us-east-1d",
+                    "us-east-1a",
+                    "us-east-1b"
+                ],
+                "SecurityGroupIds": [
+                    "sg-0be736f2d3736d5e7"
+                ]
+            },
+            "CognitoOptions": {
+                "Enabled": false
+            },
+            "EncryptionAtRestOptions": {
+                "Enabled": true,
+                "KmsKeyId": "arn:aws:kms:us-east-1:644160558196:key/6917a312-adce-4bbc-8202-958f2db490fa"
+            },
+            "NodeToNodeEncryptionOptions": {
+                "Enabled": true
+            },
+            "AdvancedOptions": {
+                "indices.fielddata.cache.size": "20",
+                "indices.query.bool.max_clause_count": "1024",
+                "override_main_response_version": "false",
+                "rest.action.multi.allow_explicit_index": "true"
+            },
+            "ServiceSoftwareOptions": {
+                "CurrentVersion": "OpenSearch_2_9_R20230926",
+                "NewVersion": "",
+                "UpdateAvailable": false,
+                "Cancellable": false,
+                "UpdateStatus": "COMPLETED",
+                "Description": "There is no software update available for this domain.",
+                "AutomatedUpdateDate": {
+                    "__class__": "datetime",
+                    "year": 1969,
+                    "month": 12,
+                    "day": 31,
+                    "hour": 19,
+                    "minute": 0,
+                    "second": 0,
+                    "microsecond": 0
+                },
+                "OptionalDeployment": true
+            },
+            "DomainEndpointOptions": {
+                "EnforceHTTPS": true,
+                "TLSSecurityPolicy": "Policy-Min-TLS-1-0-2019-07",
+                "CustomEndpointEnabled": false
+            },
+            "AdvancedSecurityOptions": {
+                "Enabled": true,
+                "InternalUserDatabaseEnabled": false,
+                "AnonymousAuthEnabled": false
+            },
+            "AutoTuneOptions": {
+                "State": "ENABLED",
+                "UseOffPeakWindow": false
+            },
+            "ChangeProgressDetails": {
+                "ChangeId": "be191edb-8828-4d93-80eb-0fe3eb8658cb"
+            },
+            "OffPeakWindowOptions": {
+                "Enabled": true,
+                "OffPeakWindow": {
+                    "WindowStartTime": {
+                        "Hours": 0,
+                        "Minutes": 0
+                    }
+                }
+            },
+            "SoftwareUpdateOptions": {
+                "AutoSoftwareUpdateEnabled": false
+            }
+        }
+    }
+}
