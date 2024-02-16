@@ -1,0 +1,70 @@
+{
+    "status_code": 200,
+    "data": {
+        "ResponseMetadata": {},
+        "resourceShares": [
+            {
+                "resourceShareArn": "arn:aws:ram:us-east-1:644160558196:resource-share/5547ad79-7574-4fff-8514-72b1ae700963",
+                "name": "test2",
+                "owningAccountId": "644160558196",
+                "allowExternalPrincipals": true,
+                "status": "ACTIVE",
+                "creationTime": {
+                    "__class__": "datetime",
+                    "year": 2024,
+                    "month": 2,
+                    "day": 16,
+                    "hour": 15,
+                    "minute": 39,
+                    "second": 36,
+                    "microsecond": 348000
+                },
+                "lastUpdatedTime": {
+                    "__class__": "datetime",
+                    "year": 2024,
+                    "month": 2,
+                    "day": 16,
+                    "hour": 15,
+                    "minute": 39,
+                    "second": 36,
+                    "microsecond": 348000
+                },
+                "featureSet": "STANDARD"
+            },
+            {
+                "resourceShareArn": "arn:aws:ram:us-east-1:644160558196:resource-share/e27e87ea-630d-4870-93fd-3da1ac22b1cb",
+                "name": "test",
+                "owningAccountId": "644160558196",
+                "allowExternalPrincipals": true,
+                "status": "DELETED",
+                "tags": [
+                    {
+                        "key": "xyz",
+                        "value": "hello world"
+                    }
+                ],
+                "creationTime": {
+                    "__class__": "datetime",
+                    "year": 2024,
+                    "month": 2,
+                    "day": 16,
+                    "hour": 14,
+                    "minute": 58,
+                    "second": 4,
+                    "microsecond": 413000
+                },
+                "lastUpdatedTime": {
+                    "__class__": "datetime",
+                    "year": 2024,
+                    "month": 2,
+                    "day": 16,
+                    "hour": 15,
+                    "minute": 47,
+                    "second": 35,
+                    "microsecond": 752000
+                },
+                "featureSet": "STANDARD"
+            }
+        ]
+    }
+}
