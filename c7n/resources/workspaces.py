@@ -596,12 +596,9 @@ class DeleteWorkspaceBundle(BaseAction):
     def process(self, bundles):
         client = local_session(self.manager.session_factory).client('workspaces')
         for bundle in bundles:
-            self.process_bundle(client, bundle)
-
-    def process_bundle(self, client, bundle):
-        try:
-            client.delete_workspace_bundle(BundleId=bundle['BundleId'])
-        except client.exceptions.ResourceNotFoundException:
-            self.log.warning("Bundle not found: %s" % bundle['BundleId'])
-        except Exception as e:
-            self.log.error("Error deleting WorkSpaces Bundle %s: %s" % (bundle['BundleId'], e))
+            try:
+                client.delete_workspace_bundle(BundleId=bundle['BundleId'])
+            except client.exceptions.ResourceNotFoundException:
+                self.log.warning("Bundle not found: %s" % bundle['BundleId'])
+            except Exception as e:
+                self.log.error("Error deleting WorkSpaces Bundle %s: %s" % (bundle['BundleId'], e))
