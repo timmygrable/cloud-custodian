@@ -570,6 +570,7 @@ class DeleteWorkspacesWeb(BaseAction):
     def delete_portal(self, client, resource):
         client.delete_portal(portalArn=resource['portalArn'])
 
+
 @resources.register('workspaces-bundle')
 class WorkspacesBundle(QueryResourceManager):
 
@@ -579,6 +580,7 @@ class WorkspacesBundle(QueryResourceManager):
         arn_type = 'workspacebundle'
         name = id = 'BundleId'
         universal_taggable = True
+
 
 @WorkspacesBundle.action_registry.register('delete')
 class DeleteWorkspaceBundle(BaseAction):
@@ -606,5 +608,3 @@ class DeleteWorkspaceBundle(BaseAction):
                 client.delete_workspace_bundle(BundleId=bundle['BundleId'])
             except client.exceptions.ResourceNotFoundException:
                 self.log.warning("Bundle not found: %s" % bundle['BundleId'])
-            except Exception as e:
-                self.log.error("Error deleting WorkSpaces Bundle %s: %s" % (bundle['BundleId'], e))

@@ -457,6 +457,7 @@ class TestWorkspacesWeb(BaseTest):
         portals = client.list_portals()['portals']
         self.assertEqual(len(portals), 0)
 
+
 class TestWorkspacesBundleDelete(BaseTest):
 
     def test_workspaces_bundle_tag(self):
