@@ -593,7 +593,7 @@ class DeleteWorkspaceBundle(BaseAction):
 
         policies:
           - name: delete-workspaces-bundle
-            resource: workspaces-bundle
+            resource: aws.workspaces-bundle
             actions:
               - delete
     """

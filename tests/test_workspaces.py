@@ -504,7 +504,7 @@ class TestWorkspacesBundleDelete(BaseTest):
 
         p = self.load_policy({
             'name': 'workspaces-bundle-delete',
-            'resource': 'workspaces-bundle',
+            'resource': 'aws.workspaces-bundle',
             'filters': [{'Name': 'test'}],
             'actions': [{'type': 'delete'}]
         }, session_factory=session_factory)
