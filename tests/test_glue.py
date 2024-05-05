@@ -122,6 +122,23 @@ class TestGlueConnections(BaseTest):
         resources = p.run()
         self.assertEqual(len(resources), 0)
 
+    def test_glue_misconfigured_subnets(self):
+        session_factory = self.replay_flight_data("test_glue_misconfigured_subnets")
+        p = self.load_policy(
+            {
+                "name": "list-glue-connections",
+                "resource": "glue-connection",
+                "filters": [
+                    {"type": "subnet", "key": "tag:c7n-internal", "op": "ne", "value": "True"}
+                ],
+            },
+            session_factory=session_factory,
+        )
+
+        resources = p.run()
+        # Assert that the error was caught and the misconfigured resource was filtered out
+        self.assertEqual(len(resources), 0)
+
 
 class TestGlueDevEndpoints(BaseTest):
 

@@ -604,7 +604,7 @@ class DescribeSubnets(query.DescribeSource):
                 if e.response['Error']['Code'] != 'InvalidSubnetID.NotFound':
                     raise
                 sid = extract_subnet_id(e)
-                if sid:
+                if sid and sid in resource_ids:
                     resource_ids.remove(sid)
                 else:
                     return []
