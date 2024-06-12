@@ -1,0 +1,36 @@
+{
+    "status_code": 200,
+    "data": {
+        "ResponseMetadata": {},
+        "resourceShares": [
+            {
+                "resourceShareArn": "arn:aws:ram:us-east-1:644160558196:resource-share/5547ad79-7574-4fff-8514-72b1ae700963",
+                "name": "test2",
+                "owningAccountId": "644160558196",
+                "allowExternalPrincipals": true,
+                "status": "DELETED",
+                "creationTime": {
+                    "__class__": "datetime",
+                    "year": 2024,
+                    "month": 2,
+                    "day": 16,
+                    "hour": 15,
+                    "minute": 39,
+                    "second": 36,
+                    "microsecond": 348000
+                },
+                "lastUpdatedTime": {
+                    "__class__": "datetime",
+                    "year": 2024,
+                    "month": 2,
+                    "day": 16,
+                    "hour": 15,
+                    "minute": 48,
+                    "second": 40,
+                    "microsecond": 776000
+                },
+                "featureSet": "STANDARD"
+            }
+        ]
+    }
+}
