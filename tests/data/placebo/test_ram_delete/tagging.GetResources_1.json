@@ -1,0 +1,18 @@
+{
+    "status_code": 200,
+    "data": {
+        "PaginationToken": "",
+        "ResourceTagMappingList": [
+            {
+                "ResourceARN": "arn:aws:ram:us-east-1:644160558196:resource-share/e27e87ea-630d-4870-93fd-3da1ac22b1cb",
+                "Tags": [
+                    {
+                        "Key": "xyz",
+                        "Value": "hello world"
+                    }
+                ]
+            }
+        ],
+        "ResponseMetadata": {}
+    }
+}
